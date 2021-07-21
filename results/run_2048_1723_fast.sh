@@ -2,7 +2,7 @@
 
 target_dir="../build/bin/"
 target_file="aff3ct"
-output_dir="../../PyBER/data/refs/POLAR/AWGN/BPSK/SCL/"
+output_dir="./SCL/"
 
 n="2048"
 k="1723"
