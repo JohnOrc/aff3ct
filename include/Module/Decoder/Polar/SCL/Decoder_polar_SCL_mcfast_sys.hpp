@@ -42,6 +42,10 @@ protected:
 	std::vector<std ::vector<R   >>   metrics_vec;    // list of candidate metrics to be sorted
 	            std ::vector<int >    dup_count;      // number of duplications of a path, at updating time
 	            std ::vector<int >    bit_flips;      // index of the bits to be flipped
+
+	            std ::vector<int>     r1_mc_size;  	  // sizes of r1 minimum combinations set
+				std ::vector<int>     spc_mc_size;	  // sizes of spc minimum combinations set
+
 	            std ::vector<bool>    is_even;        // used to store parity of a spc node
 
 	int                               best_path;
@@ -96,14 +100,19 @@ protected:
 	        inline int  up_ref_array_idx(const int path, const int r_d); // return the array
 
 private:
-	inline void flip_bits_r1 (const int old_path, const int new_path, const int dup, const int off_s, const int n_elmts);
-	inline void flip_bits_spc(const int old_path, const int new_path, const int dup, const int off_s, const int n_elmts);
-
+	inline void flip_bits_r1(const int old_path, const int new_path, const int dup, const int off_s, const int n_elmts, const int bits_num);
+	inline void update_r1_vec(const int path, const int n_elmts, const int L, const int c_num, const std::vector<R>& pen);
+	inline void flip_bits_spc(const int old_path, const int new_path, const int dup, const int off_s, const int n_elmts, const int bits_num);
+	inline void update_spc_vec(const int path, const int n_elmts, const int L, const int c_num, const std::vector<R>& pen);
+	
+	inline void _partial_sort  (const R *values, std::vector<int> &pos, int n_elmts, int k); // path metric sort 
 	inline void erase_bad_paths (                                                                        );
 	inline int  duplicate_tree  (const int old_path, const int off_l, const int off_s, const int n_elmts ); // return the new_path
+
 };
 }
 }
+
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 #include "Module/Decoder/Polar/SCL/Decoder_polar_SCL_mcfast_sys.hxx"
