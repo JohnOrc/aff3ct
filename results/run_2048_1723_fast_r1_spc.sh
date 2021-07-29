@@ -7,7 +7,7 @@ output_dir="./SCL/"
 n="2048"
 k="1723"
 crc_type="32-GZIP"
-method="fast"
+method="MCFAST"
 nodes="{R0,R0L,R1,REP,REPL,SPC_4}"
 echo "processing: n = "$n" k = "$k" crc_type = "$crc_type" method = "$method
 
