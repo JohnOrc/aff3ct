@@ -465,6 +465,9 @@
 #ifndef DECODER_POLAR_SCL_FAST_SYS
 #include <Module/Decoder/Polar/SCL/Decoder_polar_SCL_fast_sys.hpp>
 #endif
+#ifndef DECODER_POLAR_SCL_MCFAST_SYS
+#include <Module/Decoder/Polar/SCL/Decoder_polar_SCL_mcfast_sys.hpp>
+#endif
 #ifndef DECODER_POLAR_SCL_MEM_FAST_SYS
 #include <Module/Decoder/Polar/SCL/Decoder_polar_SCL_MEM_fast_sys.hpp>
 #endif
