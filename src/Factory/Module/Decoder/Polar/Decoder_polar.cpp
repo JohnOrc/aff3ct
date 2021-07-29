@@ -19,6 +19,7 @@
 #include "Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_naive_CA.hpp"
 #include "Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_naive_CA_sys.hpp"
 #include "Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_fast_CA_sys.hpp"
+#include "Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_mcfast_CA_sys.hpp"
 #include "Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_MEM_fast_CA_sys.hpp"
 #include "Module/Decoder/Polar/ASCL/Decoder_polar_ASCL_fast_CA_sys.hpp"
 #include "Module/Decoder/Polar/ASCL/Decoder_polar_ASCL_MEM_fast_CA_sys.hpp"
@@ -246,7 +247,7 @@ module::Decoder_SIHO<B,Q>* Decoder_polar
 	{
 		if (crc != nullptr && std::unique_ptr<module::CRC<B>>(crc->clone())->get_size() > 0)
 		{
-			// if (this->type == "SCL"     ) decoder = new module::Decoder_polar_SCL_mcfast_CA_sys     <B, Q, API_polar>(this->K, this->N_cw, this->L, frozen_bits, polar_patterns, idx_r0, idx_r1, *crc                     );
+			if (this->type == "SCL"     ) decoder = new module::Decoder_polar_SCL_mcfast_CA_sys     <B, Q, API_polar>(this->K, this->N_cw, this->L, frozen_bits, polar_patterns, idx_r0, idx_r1, *crc                     );
 		}
 		else
 		{
