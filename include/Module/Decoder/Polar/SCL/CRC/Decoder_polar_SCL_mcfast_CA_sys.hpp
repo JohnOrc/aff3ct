@@ -61,4 +61,4 @@ protected:
 #include "Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_mcfast_CA_sys.hxx"
 #endif
 
-#endif /* DECODER_POLAR_SCL_FAST_SYS_CA_CA */
+#endif /* DECODER_POLAR_SCL_FAST_SYS_CA_ */

@@ -118,4 +118,4 @@ private:
 #include "Module/Decoder/Polar/SCL/Decoder_polar_SCL_mcfast_sys.hxx"
 #endif
 
-#endif /* Decoder_polar_SCL_mcfast_sys_ */
+#endif /* DECODER_POLAR_SCL_MCFAST_SYS_ */

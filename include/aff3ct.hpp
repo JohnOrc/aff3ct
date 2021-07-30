@@ -1188,6 +1188,21 @@
 #ifndef PATTERN_POLAR_SPC_HPP_
 #include <Tools/Code/Polar/Patterns/Pattern_polar_spc.hpp>
 #endif
+#ifndef PATTERN_POLAR_T1_HPP_
+#include <Tools/Code/Polar/Patterns/Pattern_polar_t1.hpp>
+#endif
+#ifndef PATTERN_POLAR_T2_HPP_
+#include <Tools/Code/Polar/Patterns/Pattern_polar_t2.hpp>
+#endif
+#ifndef PATTERN_POLAR_T3_HPP_
+#include <Tools/Code/Polar/Patterns/Pattern_polar_t3.hpp>
+#endif
+#ifndef PATTERN_POLAR_T4_HPP_
+#include <Tools/Code/Polar/Patterns/Pattern_polar_t4.hpp>
+#endif
+#ifndef PATTERN_POLAR_T5_HPP_
+#include <Tools/Code/Polar/Patterns/Pattern_polar_t5.hpp>
+#endif
 #ifndef PATTERN_POLAR_STANDARD_HPP_
 #include <Tools/Code/Polar/Patterns/Pattern_polar_std.hpp>
 #endif

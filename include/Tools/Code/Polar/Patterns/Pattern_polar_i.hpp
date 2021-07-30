@@ -22,6 +22,11 @@ enum class polar_node_t : uint8_t
 	REP_LEFT,
 	REP,
 	SPC,
+	T1,
+	T2,
+	T3,
+	T4,
+	T5,
 	NB_PATTERNS
 };
 
