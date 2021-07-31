@@ -240,7 +240,7 @@ void Nodes_parser<R0,R0L,R1,REP,REPL,SPC,T1,T2,T3,T4,T5,STD>
 						auto min = (int)std::log2(std::stoi(v_str2[0]));
 
 						if (plus) push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T1(min     ));
-						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T1(min, min))
+						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T1(min, min));
 					}
 				}
 			}
@@ -266,7 +266,7 @@ void Nodes_parser<R0,R0L,R1,REP,REPL,SPC,T1,T2,T3,T4,T5,STD>
 						auto min = (int)std::log2(std::stoi(v_str2[0]));
 
 						if (plus) push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T2(min     ));
-						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T2(min, min))
+						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T2(min, min));
 					}
 				}
 			}
@@ -292,7 +292,7 @@ void Nodes_parser<R0,R0L,R1,REP,REPL,SPC,T1,T2,T3,T4,T5,STD>
 						auto min = (int)std::log2(std::stoi(v_str2[0]));
 
 						if (plus) push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T3(min     ));
-						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T3(min, min))
+						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T3(min, min));
 					}
 				}
 			}
@@ -318,7 +318,7 @@ void Nodes_parser<R0,R0L,R1,REP,REPL,SPC,T1,T2,T3,T4,T5,STD>
 						auto min = (int)std::log2(std::stoi(v_str2[0]));
 
 						if (plus) push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T4(min     ));
-						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T4(min, min))
+						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T4(min, min));
 					}
 				}
 			}
@@ -344,7 +344,7 @@ void Nodes_parser<R0,R0L,R1,REP,REPL,SPC,T1,T2,T3,T4,T5,STD>
 						auto min = (int)std::log2(std::stoi(v_str2[0]));
 
 						if (plus) push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T5(min     ));
-						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T5(min, min))
+						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T5(min, min));
 					}
 				}
 			}

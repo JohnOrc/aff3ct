@@ -425,7 +425,7 @@ void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
 									 (node_type == tools::polar_node_t::T2)     ||
 									 (node_type == tools::polar_node_t::T3)     ||
 									 (node_type == tools::polar_node_t::T4)     ||
-									 (node_type == tools::polar_node_t::T5)     ||;
+									 (node_type == tools::polar_node_t::T5);
 
 	// root node
 	if (rev_depth == m)
