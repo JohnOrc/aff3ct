@@ -17,6 +17,11 @@
 #include "Tools/Code/Polar/Patterns/Pattern_polar_rep.hpp"
 #include "Tools/Code/Polar/Patterns/Pattern_polar_rep_left.hpp"
 #include "Tools/Code/Polar/Patterns/Pattern_polar_spc.hpp"
+#include "Tools/Code/Polar/Patterns/Pattern_polar_t1.hpp"
+#include "Tools/Code/Polar/Patterns/Pattern_polar_t2.hpp"
+#include "Tools/Code/Polar/Patterns/Pattern_polar_t3.hpp"
+#include "Tools/Code/Polar/Patterns/Pattern_polar_t4.hpp"
+#include "Tools/Code/Polar/Patterns/Pattern_polar_t5.hpp"
 #include "Tools/Code/Polar/Patterns/Pattern_polar_std.hpp"
 #include "Tools/Code/Polar/Pattern_polar_parser.hpp"
 #include "Tools/Code/Polar/fb_extract.h"
@@ -44,7 +49,12 @@ Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
                      new tools::Pattern_polar_rep_left,
                      new tools::Pattern_polar_rep,       // /!\ perf. degradation with REP nodes in fixed-point
                     //  new tools::Pattern_polar_spc(2,2)}, // /!\ perf. degradation with SPC nodes length > 4 (when L is big)
-					new tools::Pattern_polar_spc}, // /!\ perf. degradation with SPC nodes length > 4 (when L is big)
+					new tools::Pattern_polar_spc, // /!\ perf. degradation with SPC nodes length > 4 (when L is big)  
+					new tools::Pattern_polar_t1,
+					new tools::Pattern_polar_t2,
+					new tools::Pattern_polar_t3,
+					new tools::Pattern_polar_t4,
+					new tools::Pattern_polar_t5}, 
                     1,
                     2,
                     true),
@@ -410,7 +420,12 @@ void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
 	const bool is_terminal_pattern = (node_type == tools::polar_node_t::RATE_0) ||
 	                                 (node_type == tools::polar_node_t::RATE_1) ||
 	                                 (node_type == tools::polar_node_t::REP)    ||
-	                                 (node_type == tools::polar_node_t::SPC);
+	                                 (node_type == tools::polar_node_t::SPC)    ||
+									 (node_type == tools::polar_node_t::T1)     ||
+									 (node_type == tools::polar_node_t::T2)     ||
+									 (node_type == tools::polar_node_t::T3)     ||
+									 (node_type == tools::polar_node_t::T4)     ||
+									 (node_type == tools::polar_node_t::T5)     ||;
 
 	// root node
 	if (rev_depth == m)
@@ -584,6 +599,7 @@ void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
 			case tools::polar_node_t::REP:    update_paths_rep(rev_depth, off_l, off_s, n_elmts); break;
 			case tools::polar_node_t::RATE_1: update_paths_r1 (rev_depth, off_l, off_s, n_elmts); break;
 			case tools::polar_node_t::SPC:    update_paths_spc(rev_depth, off_l, off_s, n_elmts); break;
+			case tools::polar_node_t::T1:	  update_paths_t1 (rev_depth, off_l, off_s, n_elmts); break;
 			default:
 				break;
 		}
@@ -1042,6 +1058,81 @@ void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
 		metrics[new_path] = metrics_vec[2][best_idx[i]];
 		dup_count[path]--;
 	}
+}
+
+template <typename B, typename R, class API_polar>
+void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
+::update_paths_t1(const int r_d, const int off_l, const int off_s, const int n_elmts)
+{
+
+}
+
+template <typename B, typename R, class API_polar>
+template <int REV_D, int N_ELMTS>
+void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
+::update_paths_t1(const int off_l, const int off_s)
+{
+
+}
+
+template <typename B, typename R, class API_polar>
+void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
+::update_paths_t2(const int r_d, const int off_l, const int off_s, const int n_elmts)
+{
+
+}
+
+template <typename B, typename R, class API_polar>
+template <int REV_D, int N_ELMTS>
+void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
+::update_paths_t2(const int off_l, const int off_s)
+{
+
+}
+
+template <typename B, typename R, class API_polar>
+void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
+::update_paths_t3(const int r_d, const int off_l, const int off_s, const int n_elmts)
+{
+
+}
+
+template <typename B, typename R, class API_polar>
+template <int REV_D, int N_ELMTS>
+void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
+::update_paths_t3(const int off_l, const int off_s)
+{
+
+}
+
+template <typename B, typename R, class API_polar>
+void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
+::update_paths_t4(const int r_d, const int off_l, const int off_s, const int n_elmts)
+{
+
+}
+
+template <typename B, typename R, class API_polar>
+template <int REV_D, int N_ELMTS>
+void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
+::update_paths_t4(const int off_l, const int off_s)
+{
+
+}
+
+template <typename B, typename R, class API_polar>
+void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
+::update_paths_t5(const int r_d, const int off_l, const int off_s, const int n_elmts)
+{
+
+}
+
+template <typename B, typename R, class API_polar>
+template <int REV_D, int N_ELMTS>
+void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
+::update_paths_t5(const int off_l, const int off_s)
+{
+
 }
 
 template <typename B, typename R, class API_polar>

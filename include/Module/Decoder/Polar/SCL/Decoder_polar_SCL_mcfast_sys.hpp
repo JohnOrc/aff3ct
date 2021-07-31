@@ -87,12 +87,24 @@ protected:
 	inline void update_paths_r1 (const int rev_depth, const int off_l, const int off_s, const int n_elmts);
 	inline void update_paths_rep(const int rev_depth, const int off_l, const int off_s, const int n_elmts);
 	inline void update_paths_spc(const int rev_depth, const int off_l, const int off_s, const int n_elmts);
+	inline void update_paths_t1(const int rev_depth, const int off_l, const int off_s, const int n_elmts);
+	inline void update_paths_t2(const int rev_depth, const int off_l, const int off_s, const int n_elmts);
+	inline void update_paths_t3(const int rev_depth, const int off_l, const int off_s, const int n_elmts);
+	inline void update_paths_t4(const int rev_depth, const int off_l, const int off_s, const int n_elmts);
+	inline void update_paths_t5(const int rev_depth, const int off_l, const int off_s, const int n_elmts);
+
+
 
 	// those methods are used by the generated SCL decoders
 	template <int REV_D, int N_ELMTS> inline void update_paths_r0 (const int off_l, const int off_s);
 	template <int REV_D, int N_ELMTS> inline void update_paths_r1 (const int off_l, const int off_s);
 	template <int REV_D, int N_ELMTS> inline void update_paths_rep(const int off_l, const int off_s);
 	template <int REV_D, int N_ELMTS> inline void update_paths_spc(const int off_l, const int off_s);
+	template <int REV_D, int N_ELMTS> inline void update_paths_t1 (const int off_l, const int off_s);
+	template <int REV_D, int N_ELMTS> inline void update_paths_t2 (const int off_l, const int off_s);
+	template <int REV_D, int N_ELMTS> inline void update_paths_t3 (const int off_l, const int off_s);
+	template <int REV_D, int N_ELMTS> inline void update_paths_t4 (const int off_l, const int off_s);
+	template <int REV_D, int N_ELMTS> inline void update_paths_t5 (const int off_l, const int off_s);
 
 	virtual inline void init_buffers    (                             );
 	        inline void delete_path     (int path_id                  );

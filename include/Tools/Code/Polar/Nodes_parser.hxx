@@ -14,8 +14,8 @@ namespace aff3ct
 namespace tools
 {
 
-template <class R0, class R0L, class R1, class REP, class REPL, class SPC, class STD>
-void Nodes_parser<R0,R0L,R1,REP,REPL,SPC,STD>
+template <class R0, class R0L, class R1, class REP, class REPL, class SPC, class T1, class T2, class T3, class T4, class T5, class STD>
+void Nodes_parser<R0,R0L,R1,REP,REPL,SPC,T1,T2,T3,T4,T5,STD>
 ::push_back_polar_pattern(std::vector<Pattern_polar_i*> *polar_patterns_ptr,
                           std::vector<std::unique_ptr<Pattern_polar_i>> *polar_patterns_uptr,
                           Pattern_polar_i* polar_pattern)
@@ -29,8 +29,8 @@ void Nodes_parser<R0,R0L,R1,REP,REPL,SPC,STD>
 		delete polar_pattern;
 }
 
-template <class R0, class R0L, class R1, class REP, class REPL, class SPC, class STD>
-void Nodes_parser<R0,R0L,R1,REP,REPL,SPC,STD>
+template <class R0, class R0L, class R1, class REP, class REPL, class SPC, class T1, class T2, class T3, class T4, class T5, class STD>
+void Nodes_parser<R0,R0L,R1,REP,REPL,SPC,T1,T2,T3,T4,T5,STD>
 ::parse(const std::string &str_polar, int &idx_r0, int &idx_r1,
         std::vector<Pattern_polar_i*> *polar_patterns_ptr,
         std::vector<std::unique_ptr<Pattern_polar_i>> *polar_patterns_uptr)
@@ -218,6 +218,136 @@ void Nodes_parser<R0,R0L,R1,REP,REPL,SPC,STD>
 					}
 				}
 			}
+			else if (v_str1[0] == "T1")
+			{
+				if (v_str1.size() == 1)
+					push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T1);
+				else
+				{
+					auto v_str2 = split(v_str1[1], '-');
+
+					if (v_str2.size() > 1)
+					{
+						auto min = (int)std::log2(std::stoi(v_str2[0]));
+						auto max = (int)std::log2(std::stoi(v_str2[1]));
+
+						push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T1(min, max));
+					}
+					else
+					{
+						bool plus = v_str2[0].find("+") != std::string::npos;
+
+						auto min = (int)std::log2(std::stoi(v_str2[0]));
+
+						if (plus) push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T1(min     ));
+						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T1(min, min))
+					}
+				}
+			}
+			else if (v_str1[0] == "T2")
+			{
+				if (v_str1.size() == 1)
+					push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T2);
+				else
+				{
+					auto v_str2 = split(v_str1[1], '-');
+
+					if (v_str2.size() > 1)
+					{
+						auto min = (int)std::log2(std::stoi(v_str2[0]));
+						auto max = (int)std::log2(std::stoi(v_str2[1]));
+
+						push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T2(min, max));
+					}
+					else
+					{
+						bool plus = v_str2[0].find("+") != std::string::npos;
+
+						auto min = (int)std::log2(std::stoi(v_str2[0]));
+
+						if (plus) push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T2(min     ));
+						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T2(min, min))
+					}
+				}
+			}
+			else if (v_str1[0] == "T3")
+			{
+				if (v_str1.size() == 1)
+					push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T3);
+				else
+				{
+					auto v_str2 = split(v_str1[1], '-');
+
+					if (v_str2.size() > 1)
+					{
+						auto min = (int)std::log2(std::stoi(v_str2[0]));
+						auto max = (int)std::log2(std::stoi(v_str2[1]));
+
+						push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T3(min, max));
+					}
+					else
+					{
+						bool plus = v_str2[0].find("+") != std::string::npos;
+
+						auto min = (int)std::log2(std::stoi(v_str2[0]));
+
+						if (plus) push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T3(min     ));
+						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T3(min, min))
+					}
+				}
+			}
+			else if (v_str1[0] == "T4")
+			{
+				if (v_str1.size() == 1)
+					push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T4);
+				else
+				{
+					auto v_str2 = split(v_str1[1], '-');
+
+					if (v_str2.size() > 1)
+					{
+						auto min = (int)std::log2(std::stoi(v_str2[0]));
+						auto max = (int)std::log2(std::stoi(v_str2[1]));
+
+						push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T4(min, max));
+					}
+					else
+					{
+						bool plus = v_str2[0].find("+") != std::string::npos;
+
+						auto min = (int)std::log2(std::stoi(v_str2[0]));
+
+						if (plus) push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T4(min     ));
+						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T4(min, min))
+					}
+				}
+			}
+			else if (v_str1[0] == "T5")
+			{
+				if (v_str1.size() == 1)
+					push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T5);
+				else
+				{
+					auto v_str2 = split(v_str1[1], '-');
+
+					if (v_str2.size() > 1)
+					{
+						auto min = (int)std::log2(std::stoi(v_str2[0]));
+						auto max = (int)std::log2(std::stoi(v_str2[1]));
+
+						push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T5(min, max));
+					}
+					else
+					{
+						bool plus = v_str2[0].find("+") != std::string::npos;
+
+						auto min = (int)std::log2(std::stoi(v_str2[0]));
+
+						if (plus) push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T5(min     ));
+						else      push_back_polar_pattern(polar_patterns_ptr, polar_patterns_uptr, new T5(min, min))
+					}
+				}
+			}
 			else
 			{
 				std::clog << rang::tag::warning << "Unrecognized Polar node type (" << v_polar[i] << ")." << std::endl;
@@ -243,8 +373,8 @@ void Nodes_parser<R0,R0L,R1,REP,REPL,SPC,STD>
 }
 
 
-template <class R0, class R0L, class R1, class REP, class REPL, class SPC, class STD>
-std::vector<std::unique_ptr<Pattern_polar_i>> Nodes_parser<R0,R0L,R1,REP,REPL,SPC,STD>
+template <class R0, class R0L, class R1, class REP, class REPL, class SPC, class T1, class T2, class T3, class T4, class T5, class STD>
+std::vector<std::unique_ptr<Pattern_polar_i>> Nodes_parser<R0,R0L,R1,REP,REPL,SPC,T1,T2,T3,T4,T5,STD>
 ::parse_uptr(const std::string &str_polar, int &idx_r0, int &idx_r1)
 {
 	std::vector<std::unique_ptr<Pattern_polar_i>> polar_patterns_uptr;
@@ -252,8 +382,8 @@ std::vector<std::unique_ptr<Pattern_polar_i>> Nodes_parser<R0,R0L,R1,REP,REPL,SP
 	return polar_patterns_uptr;
 }
 
-template <class R0, class R0L, class R1, class REP, class REPL, class SPC, class STD>
-std::vector<Pattern_polar_i*> Nodes_parser<R0,R0L,R1,REP,REPL,SPC,STD>
+template <class R0, class R0L, class R1, class REP, class REPL, class SPC, class T1, class T2, class T3, class T4, class T5, class STD>
+std::vector<Pattern_polar_i*> Nodes_parser<R0,R0L,R1,REP,REPL,SPC,T1,T2,T3,T4,T5,STD>
 ::parse_ptr(const std::string &str_polar, int &idx_r0, int &idx_r1)
 {
 	std::vector<Pattern_polar_i*> polar_patterns_ptr;

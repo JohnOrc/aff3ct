@@ -16,6 +16,11 @@
 #include "Tools/Code/Polar/Patterns/Pattern_polar_rep.hpp"
 #include "Tools/Code/Polar/Patterns/Pattern_polar_rep_left.hpp"
 #include "Tools/Code/Polar/Patterns/Pattern_polar_spc.hpp"
+#include "Tools/Code/Polar/Patterns/Pattern_polar_t1.hpp"
+#include "Tools/Code/Polar/Patterns/Pattern_polar_t2.hpp"
+#include "Tools/Code/Polar/Patterns/Pattern_polar_t3.hpp"
+#include "Tools/Code/Polar/Patterns/Pattern_polar_t4.hpp"
+#include "Tools/Code/Polar/Patterns/Pattern_polar_t5.hpp"
 #include "Tools/Code/Polar/Patterns/Pattern_polar_std.hpp"
 
 namespace aff3ct
@@ -28,6 +33,11 @@ template <class R0   = Pattern_polar_r0,
           class REP  = Pattern_polar_rep,
           class REPL = Pattern_polar_rep_left,
           class SPC  = Pattern_polar_spc,
+		  class T1   = Pattern_polar_t1,
+		  class T2   = Pattern_polar_t2,
+		  class T3   = Pattern_polar_t3,
+		  class T4   = Pattern_polar_t4,
+		  class T5   = Pattern_polar_t5,
           class STD  = Pattern_polar_std>
 struct Nodes_parser
 {
