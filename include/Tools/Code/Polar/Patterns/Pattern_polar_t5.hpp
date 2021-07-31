@@ -18,10 +18,10 @@ class Pattern_polar_t5 : public Pattern_polar_i
 {
 protected:
 	inline Pattern_polar_t5(const int &N, const Binary_node<Pattern_polar_i>* node,
-	                         const int min_level = 2, const int max_level = -1);
+	                         const int min_level = 3, const int max_level = -1);
 
 public:
-	inline Pattern_polar_t5(const int min_level = 2, const int max_level = -1);
+	inline Pattern_polar_t5(const int min_level = 3, const int max_level = -1);
 
 	virtual inline Pattern_polar_t5* alloc(const int &N, const Binary_node<Pattern_polar_i>* node) const;
 

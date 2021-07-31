@@ -2,7 +2,7 @@
 
 #include "Tools/Exception/exception.hpp"
 #include "Tools/Code/Polar/Patterns/Pattern_polar_r1.hpp"
-#include "Tools/Code/Polar/Patterns/Pattern_polar_r0.hpp"
+#include "Tools/Code/Polar/Patterns/Pattern_polar_t3.hpp"
 
 namespace aff3ct
 {
@@ -122,8 +122,7 @@ bool Pattern_polar_t3
 int Pattern_polar_t3
 ::_match(const int &reverse_graph_depth, const Binary_node<Pattern_polar_i>* node_curr) const
 {
-	// todo 49 ?
-	return Pattern_polar_t3::recursive_check(reverse_graph_depth, node_curr) ? 49 : 0;
+	return Pattern_polar_t3::recursive_check(reverse_graph_depth, node_curr) ? 48 : 0;
 }
 
 bool Pattern_polar_t3

@@ -1,7 +1,7 @@
 #include <sstream>
 
 #include "Tools/Exception/exception.hpp"
-#include "Tools/Code/Polar/Patterns/Pattern_polar_r1.hpp"
+#include "Tools/Code/Polar/Patterns/Pattern_polar_t2.hpp"
 #include "Tools/Code/Polar/Patterns/Pattern_polar_r0.hpp"
 
 namespace aff3ct
@@ -57,7 +57,7 @@ std::string  Pattern_polar_t2
 std::string  Pattern_polar_t2
 ::short_name() const
 {
-	return "3";
+	return "2";
 }
 
 std::string  Pattern_polar_t2
@@ -98,16 +98,16 @@ bool Pattern_polar_t2
 		const auto pattern_left  = node_curr->get_left ()->get_contents();
 		const auto pattern_right = node_curr->get_right()->get_contents();
 
-		if (pattern_right->type() == polar_node_t::RATE_1 ||
-		    Pattern_polar_r1::recursive_check(reverse_graph_depth -1, node_curr->get_right()))
+		if (pattern_left->type() == polar_node_t::RATE_0 ||
+			Pattern_polar_r0::recursive_check(reverse_graph_depth -1, node_curr->get_left()))
 		{
-			if (pattern_left->type() == polar_node_t::T2)
+			if (pattern_right->type() == polar_node_t::T2)
 				return true;
-			else if (pattern_left->type() == polar_node_t::RATE_0 && reverse_graph_depth == 2)
-				return true;
-			else
-				return Pattern_polar_t2::recursive_check(reverse_graph_depth -1, node_curr->get_left());
+			else 
+				return Pattern_polar_t2::recursive_check(reverse_graph_depth -1, node_curr->get_right());
 		}
+		else if (reverse_graph_depth == 2 && pattern_left->type() == polar_node_t::REP && pattern_right->type() == polar_node_t::RATE_1)
+			return true;
 		else
 		{
 			return false;
@@ -122,8 +122,7 @@ bool Pattern_polar_t2
 int Pattern_polar_t2
 ::_match(const int &reverse_graph_depth, const Binary_node<Pattern_polar_i>* node_curr) const
 {
-	// todo 49 ?
-	return Pattern_polar_t2::recursive_check(reverse_graph_depth, node_curr) ? 49 : 0;
+	return Pattern_polar_t2::recursive_check(reverse_graph_depth, node_curr) ? 81 : 0;
 }
 
 bool Pattern_polar_t2
