@@ -1064,7 +1064,7 @@ template <typename B, typename R, class API_polar>
 void Decoder_polar_SCL_mcfast_sys<B,R,API_polar>
 ::update_paths_t1(const int r_d, const int off_l, const int off_s, const int n_elmts)
 {
-
+	
 }
 
 template <typename B, typename R, class API_polar>

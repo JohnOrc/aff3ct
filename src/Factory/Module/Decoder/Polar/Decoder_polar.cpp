@@ -15,11 +15,13 @@
 #include "Module/Decoder/Polar/SCL/Decoder_polar_SCL_naive_sys.hpp"
 #include "Module/Decoder/Polar/SCL/Decoder_polar_SCL_fast_sys.hpp"
 #include "Module/Decoder/Polar/SCL/Decoder_polar_SCL_mcfast_sys.hpp"
+#include "Module/Decoder/Polar/SCL/Decoder_polar_SCL_ecfast_sys.hpp"
 #include "Module/Decoder/Polar/SCL/Decoder_polar_SCL_MEM_fast_sys.hpp"
 #include "Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_naive_CA.hpp"
 #include "Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_naive_CA_sys.hpp"
 #include "Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_fast_CA_sys.hpp"
 #include "Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_mcfast_CA_sys.hpp"
+#include "Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_ecfast_CA_sys.hpp"
 #include "Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_MEM_fast_CA_sys.hpp"
 #include "Module/Decoder/Polar/ASCL/Decoder_polar_ASCL_fast_CA_sys.hpp"
 #include "Module/Decoder/Polar/ASCL/Decoder_polar_ASCL_MEM_fast_CA_sys.hpp"
@@ -148,7 +150,7 @@ void Decoder_polar
 		     this->type == "SCL"     ||
 		     this->type == "ASCL"    ||
 		     this->type == "SCL_MEM" ||
-		     this->type == "ASCL_MEM") && (this->implem == "FAST" || this->implem == "MCFAST"))
+		     this->type == "ASCL_MEM") && (this->implem == "FAST" || this->implem == "MCFAST" || this->implem == "ECFAST"))
 			headers[p].push_back(std::make_pair("Polar node types", this->polar_nodes));
 	}
 }
@@ -253,6 +255,16 @@ module::Decoder_SIHO<B,Q>* Decoder_polar
 		{
 			if (this->type == "SCL"     ) decoder = new module::Decoder_polar_SCL_mcfast_sys        <B, Q, API_polar>(this->K, this->N_cw, this->L, frozen_bits, polar_patterns, idx_r0, idx_r1                           );
 		}
+	}else if (this->implem == "ECFAST" && this->systematic)
+	{
+		if (crc != nullptr && std::unique_ptr<module::CRC<B>>(crc->clone())->get_size() > 0)
+		{
+			if (this->type == "SCL"     ) decoder = new module::Decoder_polar_SCL_ecfast_CA_sys     <B, Q, API_polar>(this->K, this->N_cw, this->L, frozen_bits, polar_patterns, idx_r0, idx_r1, *crc                     );
+		}
+		else
+		{
+			if (this->type == "SCL"     ) decoder = new module::Decoder_polar_SCL_ecfast_sys        <B, Q, API_polar>(this->K, this->N_cw, this->L, frozen_bits, polar_patterns, idx_r0, idx_r1                           );
+		}
 	}
 	for (auto p : polar_patterns)
 		delete p;
@@ -272,7 +284,7 @@ module::Decoder_SIHO<B,Q>* Decoder_polar
 	}
 	catch (tools::cannot_allocate const&)
 	{
-		if (this->type.find("SCL") != std::string::npos && (this->implem == "FAST" || this->implem == "MCFAST"))
+		if (this->type.find("SCL") != std::string::npos && (this->implem == "FAST" || this->implem == "MCFAST" || this->implem == "ECFAST"))
 		{
 			if (this->simd_strategy == "INTRA")
 			{
@@ -295,7 +307,7 @@ module::Decoder_SIHO<B,Q>* Decoder_polar
 			}
 		}
 
-		if (this->simd_strategy == "INTER" && this->type == "SC" && (this->implem == "FAST" || this->implem == "MCFAST"))
+		if (this->simd_strategy == "INTER" && this->type == "SC" && (this->implem == "FAST" || this->implem == "MCFAST" || this->implem == "ECFAST"))
 		{
 			if (typeid(B) == typeid(signed char))
 			{
@@ -324,7 +336,7 @@ module::Decoder_SIHO<B,Q>* Decoder_polar
 				return _build<B,Q,API_polar>(frozen_bits, crc, encoder);
 			}
 		}
-		else if (this->simd_strategy == "INTRA" && (this->implem == "FAST" || this->implem == "MCFAST"))
+		else if (this->simd_strategy == "INTRA" && (this->implem == "FAST" || this->implem == "MCFAST" || this->implem == "ECFAST"))
 		{
 			if (typeid(B) == typeid(signed char))
 			{
