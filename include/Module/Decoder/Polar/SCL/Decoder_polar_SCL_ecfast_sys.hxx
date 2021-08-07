@@ -72,9 +72,6 @@ Decoder_polar_SCL_ecfast_sys<B,R,API_polar>
 	this->set_name(name);
 	this->set_n_frames_per_wave(API_polar::get_n_frames());
 
-	std::cout << "load decoder 1";
-
-
 	static_assert(sizeof(B) == sizeof(R), "Sizes of the bits and reals have to be identical.");
 //	static_assert(API_polar::get_n_frames() == 1, "The inter-frame API_polar is not supported.");
 
@@ -158,8 +155,6 @@ Decoder_polar_SCL_ecfast_sys<B,R,API_polar>
 	const std::string name = "Decoder_polar_SCL_ecfast_sys";
 	this->set_name(name);
 	this->set_n_frames_per_wave(API_polar::get_n_frames());
-
-	std::cout << "load decoder 2" << std::endl;
 
 	static_assert(sizeof(B) == sizeof(R), "Sizes of the bits and reals have to be identical.");
 //	static_assert(API_polar::get_n_frames() == 1, "The inter-frame API_polar is not supported.");
