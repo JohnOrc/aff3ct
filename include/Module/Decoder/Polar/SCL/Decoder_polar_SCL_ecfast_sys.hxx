@@ -25,7 +25,8 @@
 #include "Module/Decoder/Polar/SCL/Decoder_polar_SCL_ecfast_sys.hpp"
 
 
-namespace aff3ct
+
+namespace aff3ct 
 {
 namespace module
 {
@@ -66,11 +67,13 @@ Decoder_polar_SCL_ecfast_sys<B,R,API_polar>
   path_idx		   (L),
   it			   (L)
 {
+
 	const std::string name = "Decoder_polar_SCL_ecfast_sys";
 	this->set_name(name);
 	this->set_n_frames_per_wave(API_polar::get_n_frames());
 
-	std::cout << "ec decoder" << std::endl;
+	std::cout << "load decoder 1";
+
 
 	static_assert(sizeof(B) == sizeof(R), "Sizes of the bits and reals have to be identical.");
 //	static_assert(API_polar::get_n_frames() == 1, "The inter-frame API_polar is not supported.");
@@ -151,9 +154,12 @@ Decoder_polar_SCL_ecfast_sys<B,R,API_polar>
   path_idx		   (L),
   it			   (L)
 {
+	
 	const std::string name = "Decoder_polar_SCL_ecfast_sys";
 	this->set_name(name);
 	this->set_n_frames_per_wave(API_polar::get_n_frames());
+
+	std::cout << "load decoder 2" << std::endl;
 
 	static_assert(sizeof(B) == sizeof(R), "Sizes of the bits and reals have to be identical.");
 //	static_assert(API_polar::get_n_frames() == 1, "The inter-frame API_polar is not supported.");
@@ -575,25 +581,57 @@ template <typename B, typename R, class API_polar>
 bool Decoder_polar_SCL_ecfast_sys<B,R,API_polar>
 ::insert_sort(const R val, const B idx, const int p, const bool ori)
 {
-	typename std::list<Node>::iterator a, b;
-
 	if (val >= insert_l.back().val) // first, check the end
 		return false;
 	else 
 	{
-		for (a = it[idx]; a != insert_l.end(); ++a) // then check from its head
+		for (auto a = it[idx]; a != insert_l.end(); ++a) // then check from its head
 		{
-			b = a;
+			auto b = a;
 			b++;
 			if ((*a).val <= val && val <= (*b).val)
 			{
 				insert_l.insert(b, Node(val, idx, p, ori));
 				it[idx] = a++; // update head iterator
-				break;				
+				break;
 			}
 		}
 		insert_l.pop_back();	// pop out back element
 		return true;
+	}
+}
+
+template <typename B, typename R, class API_polar>
+bool Decoder_polar_SCL_ecfast_sys<B,R,API_polar>
+::insert_sort_2(const R val, const B idx, const int p, const bool ori)
+{
+	if (insert_l.size() == L)
+	{
+		return insert_sort(val, idx, p, ori);
+	}
+	else
+	{
+		if (val >= insert_l.back().val)
+		{
+			insert_l.push_back(Node(val, idx, p, false));
+			it[idx] = insert_l.end();
+			return true;
+		}
+		else
+		{
+			for (auto a = it[idx]; a != insert_l.end(); ++a) // then check from its head
+			{
+				auto b = a;
+				b++;
+				if ((*a).val <= val && val <= (*b).val)
+				{
+					insert_l.insert(b, Node(val, idx, p, false));
+					it[idx] = a++; // update head iterator
+					break;
+				}
+			}
+			return true;
+		}
 	}
 }
 
@@ -608,9 +646,11 @@ void Decoder_polar_SCL_ecfast_sys<B,R,API_polar>
 	{
 		const auto n_list = (n_active_paths * 4 >= L) ? L : n_active_paths * 4;
 
-		if (n_list == L)
+
+		if (n_active_paths == L)
 		{
 			sorter.partial_sort(metrics.data(), path_idx, n_active_paths, n_active_paths);
+
 			
 			for (auto i = 0; i < n_active_paths; i++)
 			{
@@ -618,6 +658,7 @@ void Decoder_polar_SCL_ecfast_sys<B,R,API_polar>
 				it[i] = insert_l.end();
 				--it[i];
 			}
+
 			if (n_elmts == 2)
 			{
 				for (auto i = 0; i < n_active_paths; i++)
@@ -675,6 +716,7 @@ void Decoder_polar_SCL_ecfast_sys<B,R,API_polar>
 
 					const auto pen0 = sat_m<R>(std::abs(l[array][off_l + bit_flips[2 * path +0]]));
 					const auto pen1 = sat_m<R>(std::abs(l[array][off_l + bit_flips[2 * path +1]]));
+
 
 					if (! insert_sort(sat_m<R>(metrics[path] + pen0), i, 4 * path +1, false))
 						continue;
@@ -805,7 +847,7 @@ void Decoder_polar_SCL_ecfast_sys<B,R,API_polar>
 	{
 		const auto n_list = (n_active_paths * 4 >= L) ? L : n_active_paths * 4;
 
-		if (n_list == L)
+		if (n_active_paths == L)
 		{
 			sorter.partial_sort(metrics.data(), path_idx, n_active_paths, n_active_paths);
 			

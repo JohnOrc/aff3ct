@@ -15,6 +15,7 @@
 #include "Launcher/Launcher.hpp"
 #include "Factory/Launcher/Launcher.hpp"
 
+
 using namespace aff3ct;
 
 void print_version()
@@ -189,6 +190,7 @@ int read_arguments(const int argc, const char** argv, factory::Launcher &params)
 
 int main(int argc, char **argv)
 {
+
 	int exit_code = EXIT_SUCCESS;
 #ifdef AFF3CT_MPI
 	MPI_Init(nullptr, nullptr);
