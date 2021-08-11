@@ -1,9 +1,9 @@
 /*!
  * \file
- * \brief Class module::Decoder_polar_SCL_ecfast_sys.
+ * \brief Class module::Decoder_polar_SCL_fast_cs2_sys.
  */
-#ifndef DECODER_POLAR_SCL_ECFAST_SYS
-#define DECODER_POLAR_SCL_ECFAST_SYS
+#ifndef DECODER_POLAR_SCL_FAST_CS2_SYS
+#define DECODER_POLAR_SCL_FAST_CS2_SYS
 
 #include <vector>
 #include <mipp.h>
@@ -27,7 +27,7 @@ template <typename B = int, typename R = float,
                                                                tools::g0_LLR<  R>,
                                                                tools::h_LLR <B,R>,
                                                                tools::xo_STD<B  >>>
-class Decoder_polar_SCL_ecfast_sys : public Decoder_SIHO<B,R>, public tools::Interface_get_set_frozen_bits
+class Decoder_polar_SCL_fast_cs2_sys : public Decoder_SIHO<B,R>, public tools::Interface_get_set_frozen_bits
 {
 protected:
 	const int                         m;              // graph depth
@@ -43,6 +43,7 @@ protected:
 	            std ::vector<int >    dup_count;      // number of duplications of a path, at updating time
 	            std ::vector<int >    bit_flips;      // index of the bits to be flipped
 	            std ::vector<bool>    is_even;        // used to store parity of a spc node
+				std ::vector<bool>	  swap_pm;			  // used to label pm sort
 
 	int                               best_path;
 	int                               n_active_paths;
@@ -57,15 +58,15 @@ protected:
 	mipp::vector<R>                   l_tmp;
 
 public:
-	Decoder_polar_SCL_ecfast_sys(const int& K, const int& N, const int& L, const std::vector<bool>& frozen_bits);
+	Decoder_polar_SCL_fast_cs2_sys(const int& K, const int& N, const int& L, const std::vector<bool>& frozen_bits);
 
-	Decoder_polar_SCL_ecfast_sys(const int& K, const int& N, const int& L, const std::vector<bool>& frozen_bits,
+	Decoder_polar_SCL_fast_cs2_sys(const int& K, const int& N, const int& L, const std::vector<bool>& frozen_bits,
 	                           const std::vector<tools::Pattern_polar_i*> &polar_patterns,
 	                           const int idx_r0, const int idx_r1);
 
-	virtual ~Decoder_polar_SCL_ecfast_sys();
+	virtual ~Decoder_polar_SCL_fast_cs2_sys();
 
-	virtual Decoder_polar_SCL_ecfast_sys<B,R,API_polar>* clone() const;
+	virtual Decoder_polar_SCL_fast_cs2_sys<B,R,API_polar>* clone() const;
 
 	virtual void set_frozen_bits(const std::vector<bool>& frozen_bits);
 	virtual const std::vector<bool>& get_frozen_bits() const;
@@ -96,7 +97,7 @@ protected:
 	        inline int  up_ref_array_idx(const int path, const int r_d); // return the array
 
 private:
-	inline void sort_chaseii (R* values, std::vector<int> &pos, int n_elmts, int K);
+	inline void sort_chaseii (R* values, std::vector<int> &pos, int n_elmts, int K, int n_cands);
 	inline void flip_bits_r1 (const int old_path, const int new_path, const int dup, const int off_s, const int n_elmts);
 	inline void flip_bits_spc(const int old_path, const int new_path, const int dup, const int off_s, const int n_elmts);
 
@@ -107,7 +108,7 @@ private:
 }
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
-#include "Module/Decoder/Polar/SCL/Decoder_polar_SCL_ecfast_sys.hxx"
+#include "Module/Decoder/Polar/SCL/Decoder_polar_SCL_fast_cs2_sys.hxx"
 #endif
 
-#endif /* DECODER_POLAR_SCL_ECFAST_SYS_ */
+#endif /* DECODER_POLAR_SCL_FAST_CS2_SYS_ */

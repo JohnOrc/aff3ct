@@ -456,8 +456,14 @@
 #ifndef DECODER_POLAR_SCL_MCFAST_SYS_CA
 #include <Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_mcfast_CA_sys.hpp>
 #endif
-#ifndef DECODER_POLAR_SCL_ECFAST_SYS_CA
-#include <Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_ecfast_CA_sys.hpp>
+#ifndef DECODER_POLAR_SCL_FAST_CS_SYS_CA
+#include <Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_fast_cs_CA_sys.hpp>
+#endif
+#ifndef DECODER_POLAR_SCL_FAST_CS1_SYS_CA
+#include <Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_fast_cs1_CA_sys.hpp>
+#endif
+#ifndef DECODER_POLAR_SCL_FAST_CS2_SYS_CA
+#include <Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_fast_cs2_CA_sys.hpp>
 #endif
 #ifndef DECODER_POLAR_SCL_MEM_FAST_SYS_CA
 #include <Module/Decoder/Polar/SCL/CRC/Decoder_polar_SCL_MEM_fast_CA_sys.hpp>
@@ -474,8 +480,14 @@
 #ifndef DECODER_POLAR_SCL_MCFAST_SYS
 #include <Module/Decoder/Polar/SCL/Decoder_polar_SCL_mcfast_sys.hpp>
 #endif
-#ifndef DECODER_POLAR_SCL_ECFAST_SYS
-#include <Module/Decoder/Polar/SCL/Decoder_polar_SCL_ecfast_sys.hpp>
+#ifndef DECODER_POLAR_SCL_FAST_CS_SYS
+#include <Module/Decoder/Polar/SCL/Decoder_polar_SCL_fast_cs_sys.hpp>
+#endif
+#ifndef DECODER_POLAR_SCL_FAST_CS1_SYS
+#include <Module/Decoder/Polar/SCL/Decoder_polar_SCL_fast_cs1_sys.hpp>
+#endif
+#ifndef DECODER_POLAR_SCL_FAST_CS2_SYS
+#include <Module/Decoder/Polar/SCL/Decoder_polar_SCL_fast_cs2_sys.hpp>
 #endif
 #ifndef DECODER_POLAR_SCL_MEM_FAST_SYS
 #include <Module/Decoder/Polar/SCL/Decoder_polar_SCL_MEM_fast_sys.hpp>
