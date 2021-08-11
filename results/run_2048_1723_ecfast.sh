@@ -7,9 +7,10 @@ output_dir="./SCL/"
 n="2048"
 k="1723"
 crc_type="32-GZIP"
-method="FAST"
+method="ECFAST"
 nodes="{R0,R0L,R1,REP,REPL}"
 echo "processing: n = "$n" k = "$k" crc_type = "$crc_type" method = "$method
+
 
 list_size="4"
 output_file=$USER"_"$n"_"$k"_"$list_size"_"$crc_type"_"$method"_"$nodes".txt"

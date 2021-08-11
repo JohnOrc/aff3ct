@@ -1,0 +1,101 @@
+[metadata]
+command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-16-g10d5541 -p "32" --sim-type "BFER" -C "POLAR" -m "0.0" -M "4.6" -s "0.25" -e "100" --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "ECFAST" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL}" -L "32" 
+title=hit501_2048_1723_32_32-GZIP_ECFAST_{R0,R0L,R1,REP,REPL}.txt
+
+[trace]
+# ----------------------------------------------------
+# ---- A FAST FORWARD ERROR CORRECTION TOOLBOX >> ----
+# ----------------------------------------------------
+# Parameters:
+# * Simulation ------------------------------------
+#    ** Type                     = BFER
+#    ** Type of bits             = int32
+#    ** Type of reals            = float32
+#    ** Date (UTC)               = 2021-08-11 05:17:24
+#    ** Git version              = v3.0.1-16-g10d5541
+#    ** Code type (C)            = POLAR
+#    ** Noise range              = 0 -> 4.5 dB
+#    ** Noise type (E)           = EBN0
+#    ** Seed                     = 0
+#    ** Statistics               = off
+#    ** Debug mode               = off
+#    ** Inter frame level        = 1
+#    ** Multi-threading (t)      = 24 thread(s)
+#    ** Coset approach (c)       = no
+#    ** Coded monitoring         = no
+#    ** Bad frames tracking      = off
+#    ** Bad frames replay        = off
+#    ** Bit rate                 = 0.825684 (1691/2048)
+# * Source ----------------------------------------
+#    ** Type                     = RAND
+#    ** Implementation           = STD
+#    ** Info. bits (K_info)      = 1691
+# * CRC -------------------------------------------
+#    ** Type                     = 32-GZIP
+#    ** Polynomial (hexadecimal) = 0x4c11db7
+#    ** Size (in bit)            = 32
+#    ** Implementation           = FAST
+# * Codec -----------------------------------------
+#    ** Type                     = POLAR
+#    ** Info. bits (K)           = 1723
+#    ** Codeword size (N_cw)     = 2048
+#    ** Frame size (N)           = 2048
+#    ** Code rate                = 0.841309 (1723/2048)
+# * Encoder ---------------------------------------
+#    ** Type                     = POLAR
+#    ** Systematic               = yes
+#    Frozen bits generator ------------------------
+#    ** Type                     = GA
+#    ** Noise                    = adaptive
+# * Decoder ---------------------------------------
+#    ** Type (D)                 = SCL
+#    ** Implementation           = ECFAST
+#    ** Systematic               = yes
+#    ** SIMD strategy            = INTRA
+#    ** Num. of lists (L)        = 32
+#    ** Polar node types         = {R0,R0L,R1,REP,REPL}
+# * Modem -----------------------------------------
+#    ** Type                     = BPSK
+#    ** Implementation           = STD
+#    ** Bits per symbol          = 1
+#    ** Sigma square             = on
+# * Channel ---------------------------------------
+#    ** Type                     = AWGN
+#    ** Implementation           = STD
+#    ** Complex                  = off
+#    ** Add users                = off
+# * Monitor ---------------------------------------
+#    ** Lazy reduction           = off
+#    ** Frame error count (e)    = 100
+#    ** Compute mutual info      = no
+# * Terminal --------------------------------------
+#    ** Show Sigma               = off
+#    ** Enabled                  = yes
+#    ** Frequency (ms)           = 500
+# 
+# The simulation is running...
+# ---------------------||------------------------------------------------------||---------------------
+#  Signal Noise Ratio  ||   Bit Error Rate (BER) and Frame Error Rate (FER)    ||  Global throughput  
+#         (SNR)        ||                                                      ||  and elapsed time   
+# ---------------------||------------------------------------------------------||---------------------
+# ----------|----------||----------|----------|----------|----------|----------||----------|----------
+#     Es/N0 |    Eb/N0 ||      FRA |       BE |       FE |      BER |      FER ||  SIM_THR |    ET/RT 
+#      (dB) |     (dB) ||          |          |          |          |          ||   (Mb/s) | (hhmmss) 
+# ----------|----------||----------|----------|----------|----------|----------||----------|----------
+      -0.83 |     0.00 ||      135 |    25685 |      135 | 1.13e-01 | 1.00e+00 ||    5.362 | 00h00'00   
+      -0.58 |     0.25 ||      124 |    22282 |      124 | 1.06e-01 | 1.00e+00 ||    4.858 | 00h00'00   
+      -0.33 |     0.50 ||      123 |    20959 |      123 | 1.01e-01 | 1.00e+00 ||    4.174 | 00h00'00   
+      -0.08 |     0.75 ||      132 |    21167 |      132 | 9.48e-02 | 1.00e+00 ||    4.672 | 00h00'00   
+       0.17 |     1.00 ||      135 |    21037 |      135 | 9.22e-02 | 1.00e+00 ||    5.476 | 00h00'00   
+       0.42 |     1.25 ||      131 |    18740 |      131 | 8.46e-02 | 1.00e+00 ||    4.511 | 00h00'00   
+       0.67 |     1.50 ||      124 |    17137 |      124 | 8.17e-02 | 1.00e+00 ||    4.608 | 00h00'00   
+       0.92 |     1.75 ||      125 |    15860 |      125 | 7.50e-02 | 1.00e+00 ||    5.285 | 00h00'00   
+       1.17 |     2.00 ||      123 |    13614 |      123 | 6.55e-02 | 1.00e+00 ||    5.334 | 00h00'00   
+       1.42 |     2.25 ||      130 |    11613 |      126 | 5.28e-02 | 9.69e-01 ||    5.459 | 00h00'00   
+       1.67 |     2.50 ||      153 |     8743 |      128 | 3.38e-02 | 8.37e-01 ||    4.017 | 00h00'00   
+       1.92 |     2.75 ||      271 |     6215 |      114 | 1.36e-02 | 4.21e-01 ||    7.918 | 00h00'00   
+       2.17 |     3.00 ||      703 |     4654 |      104 | 3.91e-03 | 1.48e-01 ||   16.813 | 00h00'00   
+       2.42 |     3.25 ||     4136 |     3003 |      100 | 4.29e-04 | 2.42e-02 ||   26.607 | 00h00'00   
+       2.67 |     3.50 ||    40682 |     2787 |      100 | 4.05e-05 | 2.46e-03 ||   28.259 | 00h00'02   
+       2.92 |     3.75 ||   665360 |     2584 |      100 | 2.30e-06 | 1.50e-04 ||   27.873 | 00h00'40   
+       3.17 |     4.00 || 18894996 |     2184 |      100 | 6.84e-08 | 5.29e-06 ||   27.283 | 00h19'31   
