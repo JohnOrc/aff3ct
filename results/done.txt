@@ -1,15 +1,18 @@
 		no spc	spc_4	spc_4+
-SC:				none	none
-run_2048_1723_fastsc.sh
+CS:				none	none
+run_2048_1723_fastcs.sh
 
-SC1: 	done
+CS1: 	done
 run_2028_1723_patch.sh
 
-SC2:			none	none
-run_2048_1723_fastsc2.sh
+CS2:			none	none
+run_2048_1723_fastcs2.sh
 
-FAST:	done	none	none
+FAST:	done	done	done
 run_2028_1723_patch.sh
 run_2048_1723_fast_spc_spc4+.sh
 
-./run_2048_1723_fastsc.sh && ./run_2048_1723_fastsc2.sh && ./run_2048_1723_fast_spc_spc4+.sh
+terminal run:
+
+make -j8 
+./run_2048_1723_fastcs.sh
