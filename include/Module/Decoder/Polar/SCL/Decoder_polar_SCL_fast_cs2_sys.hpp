@@ -43,7 +43,6 @@ protected:
 	            std ::vector<int >    dup_count;      // number of duplications of a path, at updating time
 	            std ::vector<int >    bit_flips;      // index of the bits to be flipped
 	            std ::vector<bool>    is_even;        // used to store parity of a spc node
-				std ::vector<bool>	  swap_pm;			  // used to label pm sort
 
 	int                               best_path;
 	int                               n_active_paths;
@@ -51,6 +50,7 @@ protected:
 	// each following 2D vector is of size L * m
 	std::vector<std::vector<int>>     n_array_ref;    // number of times an array is used
 	std::vector<std::vector<int>>     path_2_array;   // give array used by a path
+	std::vector<std::vector<int>>	  path_2_candidate;
 
 	tools::LC_sorter<R>               sorter;
 //	tools::LC_sorter_simd<R>          sorter_simd;
