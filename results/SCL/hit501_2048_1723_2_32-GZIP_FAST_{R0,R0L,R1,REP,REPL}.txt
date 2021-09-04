@@ -1,6 +1,6 @@
 [metadata]
-command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-19-g94f5839 -p "32" --sim-type "BFER" -C "POLAR" -m "0.0" -M "4.3" -s "0.25" -e "100" --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "FASTCS2" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL}" -L "64" 
-title=hit501_2048_1723_64_32-GZIP_FAST_{R0,R0L,R1,REP,REPL}.txt
+command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-28-gb981f71 -p "32" --sim-type "BFER" -C "POLAR" -m "3.75" -M "4.3" -s "0.25" -e "100" --sim-seed "42" --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "FAST" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL}" -L "2" 
+title=hit501_2048_1723_2_32-GZIP_FAST_{R0,R0L,R1,REP,REPL}.txt
 
 [trace]
 # ----------------------------------------------------
@@ -11,12 +11,12 @@ title=hit501_2048_1723_64_32-GZIP_FAST_{R0,R0L,R1,REP,REPL}.txt
 #    ** Type                     = BFER
 #    ** Type of bits             = int32
 #    ** Type of reals            = float32
-#    ** Date (UTC)               = 2021-08-30 05:05:59
-#    ** Git version              = v3.0.1-19-g94f5839
+#    ** Date (UTC)               = 2021-09-04 13:14:33
+#    ** Git version              = v3.0.1-28-gb981f71
 #    ** Code type (C)            = POLAR
-#    ** Noise range              = 0 -> 4.25 dB
+#    ** Noise range              = 3.75 -> 4.25 dB
 #    ** Noise type (E)           = EBN0
-#    ** Seed                     = 0
+#    ** Seed                     = 42
 #    ** Statistics               = off
 #    ** Debug mode               = off
 #    ** Inter frame level        = 1
@@ -49,10 +49,10 @@ title=hit501_2048_1723_64_32-GZIP_FAST_{R0,R0L,R1,REP,REPL}.txt
 #    ** Noise                    = adaptive
 # * Decoder ---------------------------------------
 #    ** Type (D)                 = SCL
-#    ** Implementation           = FASTCS2
+#    ** Implementation           = FAST
 #    ** Systematic               = yes
 #    ** SIMD strategy            = INTRA
-#    ** Num. of lists (L)        = 64
+#    ** Num. of lists (L)        = 2
 #    ** Polar node types         = {R0,R0L,R1,REP,REPL}
 # * Modem -----------------------------------------
 #    ** Type                     = BPSK
@@ -82,20 +82,7 @@ title=hit501_2048_1723_64_32-GZIP_FAST_{R0,R0L,R1,REP,REPL}.txt
 #     Es/N0 |    Eb/N0 ||      FRA |       BE |       FE |      BER |      FER ||  SIM_THR |    ET/RT 
 #      (dB) |     (dB) ||          |          |          |          |          ||   (Mb/s) | (hhmmss) 
 # ----------|----------||----------|----------|----------|----------|----------||----------|----------
-      -0.83 |     0.00 ||      129 |    24279 |      129 | 1.11e-01 | 1.00e+00 ||    3.817 | 00h00'00   
-      -0.58 |     0.25 ||      141 |    25303 |      141 | 1.06e-01 | 1.00e+00 ||    4.597 | 00h00'00   
-      -0.33 |     0.50 ||      123 |    20902 |      123 | 1.00e-01 | 1.00e+00 ||    3.816 | 00h00'00   
-      -0.08 |     0.75 ||      127 |    20471 |      127 | 9.53e-02 | 1.00e+00 ||    2.854 | 00h00'00   
-       0.17 |     1.00 ||      131 |    20054 |      131 | 9.05e-02 | 1.00e+00 ||    4.671 | 00h00'00   
-       0.42 |     1.25 ||      124 |    17847 |      124 | 8.51e-02 | 1.00e+00 ||    4.341 | 00h00'00   
-       0.67 |     1.50 ||      135 |    18576 |      135 | 8.14e-02 | 1.00e+00 ||    4.341 | 00h00'00   
-       0.92 |     1.75 ||      139 |    17453 |      139 | 7.43e-02 | 1.00e+00 ||    4.339 | 00h00'00   
-       1.17 |     2.00 ||      123 |    13809 |      123 | 6.64e-02 | 1.00e+00 ||    4.072 | 00h00'00   
-       1.42 |     2.25 ||      138 |    12571 |      134 | 5.39e-02 | 9.71e-01 ||    5.013 | 00h00'00   
-       1.67 |     2.50 ||      172 |     8053 |      121 | 2.77e-02 | 7.03e-01 ||    5.484 | 00h00'00   
-       1.92 |     2.75 ||      301 |     5846 |      112 | 1.15e-02 | 3.72e-01 ||    7.373 | 00h00'00   
-       2.17 |     3.00 ||      785 |     4386 |      105 | 3.30e-03 | 1.34e-01 ||   10.423 | 00h00'00   
-       2.42 |     3.25 ||     6469 |     3291 |      100 | 3.01e-04 | 1.55e-02 ||   13.246 | 00h00'00   
-       2.67 |     3.50 ||    78097 |     2732 |      100 | 2.07e-05 | 1.28e-03 ||   13.244 | 00h00'09   
-       2.92 |     3.75 ||  1918299 |     2334 |      100 | 7.20e-07 | 5.21e-05 ||   12.922 | 00h04'11   
-       3.17 |     4.00 || 61877192 |     2226 |      100 | 2.13e-08 | 1.62e-06 ||   12.596 | 02h18'27   
+       2.92 |     3.75 ||     5033 |     2697 |      101 | 3.17e-04 | 2.01e-02 ||  102.704 | 00h00'00   
+       3.17 |     4.00 ||    28784 |     2335 |      100 | 4.80e-05 | 3.47e-03 ||  165.838 | 00h00'00   
+       3.42 |     4.25 ||   151158 |     1937 |      100 | 7.58e-06 | 6.62e-04 ||  174.827 | 00h00'01   
+# End of the simulation.
