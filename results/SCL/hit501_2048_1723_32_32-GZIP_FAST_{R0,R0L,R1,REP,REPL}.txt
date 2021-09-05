@@ -1,6 +1,6 @@
 [metadata]
-command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-28-gb981f71 -p "32" --sim-type "BFER" -C "POLAR" -m "3.75" -M "4.3" -s "0.25" -e "100" --sim-seed "42" --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "FASTCS1" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL}" -L "8" 
-title=hit501_2048_1723_8_32-GZIP_FASTCS1_{R0,R0L,R1,REP,REPL}.txt
+command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-28-gb981f71 -p "32" --sim-type "BFER" -C "POLAR" -m "3.75" -M "4.3" -s "0.25" -e "100" --sim-seed "42" --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "FAST" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL}" -L "32" 
+title=hit501_2048_1723_32_32-GZIP_FAST_{R0,R0L,R1,REP,REPL}.txt
 
 [trace]
 # ----------------------------------------------------
@@ -11,7 +11,7 @@ title=hit501_2048_1723_8_32-GZIP_FASTCS1_{R0,R0L,R1,REP,REPL}.txt
 #    ** Type                     = BFER
 #    ** Type of bits             = int32
 #    ** Type of reals            = float32
-#    ** Date (UTC)               = 2021-09-04 13:29:57
+#    ** Date (UTC)               = 2021-09-04 16:04:05
 #    ** Git version              = v3.0.1-28-gb981f71
 #    ** Code type (C)            = POLAR
 #    ** Noise range              = 3.75 -> 4.25 dB
@@ -49,10 +49,10 @@ title=hit501_2048_1723_8_32-GZIP_FASTCS1_{R0,R0L,R1,REP,REPL}.txt
 #    ** Noise                    = adaptive
 # * Decoder ---------------------------------------
 #    ** Type (D)                 = SCL
-#    ** Implementation           = FASTCS1
+#    ** Implementation           = FAST
 #    ** Systematic               = yes
 #    ** SIMD strategy            = INTRA
-#    ** Num. of lists (L)        = 8
+#    ** Num. of lists (L)        = 32
 #    ** Polar node types         = {R0,R0L,R1,REP,REPL}
 # * Modem -----------------------------------------
 #    ** Type                     = BPSK
@@ -82,7 +82,7 @@ title=hit501_2048_1723_8_32-GZIP_FASTCS1_{R0,R0L,R1,REP,REPL}.txt
 #     Es/N0 |    Eb/N0 ||      FRA |       BE |       FE |      BER |      FER ||  SIM_THR |    ET/RT 
 #      (dB) |     (dB) ||          |          |          |          |          ||   (Mb/s) | (hhmmss) 
 # ----------|----------||----------|----------|----------|----------|----------||----------|----------
-       2.92 |     3.75 ||    80021 |     2395 |      100 | 1.77e-05 | 1.25e-03 ||   88.583 | 00h00'01   
-       3.17 |     4.00 ||  1111322 |     1836 |      100 | 9.77e-07 | 9.00e-05 ||   88.623 | 00h00'21   
-       3.42 |     4.25 || 15328291 |     1801 |      100 | 6.95e-08 | 6.52e-06 ||   86.728 | 00h04'58   
+       2.92 |     3.75 ||   735221 |     2513 |      100 | 2.02e-06 | 1.36e-04 ||   26.529 | 00h00'46   
+       3.17 |     4.00 || 21721304 |     2140 |      100 | 5.83e-08 | 4.60e-06 ||   25.948 | 00h23'35   
+       3.42 |     4.25 || 4.51e+08 |     1177 |       70 | 1.54e-09 | 1.55e-07 ||   25.111 | 08h26'07  x
 # End of the simulation.

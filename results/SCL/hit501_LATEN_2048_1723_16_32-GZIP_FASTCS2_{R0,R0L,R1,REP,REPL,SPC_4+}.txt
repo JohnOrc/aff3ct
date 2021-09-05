@@ -1,6 +1,6 @@
 [metadata]
-command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-28-gb981f71 -p "32" --sim-type "BFER" -C "POLAR" -m "3.75" -M "4.3" -s "0.25" -e "100" --sim-seed "42" --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "FASTCS1" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL}" -L "8" 
-title=hit501_2048_1723_8_32-GZIP_FASTCS1_{R0,R0L,R1,REP,REPL}.txt
+command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-28-gb981f71 -p "32" --sim-type "BFER" -C "POLAR" -m "4" -M "4" -s "0.25" -e "10" --sim-seed "42" --sim-stats --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "FASTCS2" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL,SPC_4+}" -L "16" 
+title=hit501_LATEN_2048_1723_16_32-GZIP_FASTCS2_{R0,R0L,R1,REP,REPL,SPC_4+}.txt
 
 [trace]
 # ----------------------------------------------------
@@ -11,16 +11,16 @@ title=hit501_2048_1723_8_32-GZIP_FASTCS1_{R0,R0L,R1,REP,REPL}.txt
 #    ** Type                     = BFER
 #    ** Type of bits             = int32
 #    ** Type of reals            = float32
-#    ** Date (UTC)               = 2021-09-04 13:29:57
+#    ** Date (UTC)               = 2021-09-05 01:13:39
 #    ** Git version              = v3.0.1-28-gb981f71
 #    ** Code type (C)            = POLAR
-#    ** Noise range              = 3.75 -> 4.25 dB
+#    ** Noise range              = 4 -> 4 dB
 #    ** Noise type (E)           = EBN0
 #    ** Seed                     = 42
-#    ** Statistics               = off
+#    ** Statistics               = on
 #    ** Debug mode               = off
 #    ** Inter frame level        = 1
-#    ** Multi-threading (t)      = 24 thread(s)
+#    ** Multi-threading (t)      = 1 thread(s)
 #    ** Coset approach (c)       = no
 #    ** Coded monitoring         = no
 #    ** Bad frames tracking      = off
@@ -49,11 +49,11 @@ title=hit501_2048_1723_8_32-GZIP_FASTCS1_{R0,R0L,R1,REP,REPL}.txt
 #    ** Noise                    = adaptive
 # * Decoder ---------------------------------------
 #    ** Type (D)                 = SCL
-#    ** Implementation           = FASTCS1
+#    ** Implementation           = FASTCS2
 #    ** Systematic               = yes
 #    ** SIMD strategy            = INTRA
-#    ** Num. of lists (L)        = 8
-#    ** Polar node types         = {R0,R0L,R1,REP,REPL}
+#    ** Num. of lists (L)        = 16
+#    ** Polar node types         = {R0,R0L,R1,REP,REPL,SPC_4+}
 # * Modem -----------------------------------------
 #    ** Type                     = BPSK
 #    ** Implementation           = STD
@@ -66,7 +66,7 @@ title=hit501_2048_1723_8_32-GZIP_FASTCS1_{R0,R0L,R1,REP,REPL}.txt
 #    ** Add users                = off
 # * Monitor ---------------------------------------
 #    ** Lazy reduction           = off
-#    ** Frame error count (e)    = 100
+#    ** Frame error count (e)    = 10
 #    ** Compute mutual info      = no
 # * Terminal --------------------------------------
 #    ** Show Sigma               = off
@@ -82,7 +82,5 @@ title=hit501_2048_1723_8_32-GZIP_FASTCS1_{R0,R0L,R1,REP,REPL}.txt
 #     Es/N0 |    Eb/N0 ||      FRA |       BE |       FE |      BER |      FER ||  SIM_THR |    ET/RT 
 #      (dB) |     (dB) ||          |          |          |          |          ||   (Mb/s) | (hhmmss) 
 # ----------|----------||----------|----------|----------|----------|----------||----------|----------
-       2.92 |     3.75 ||    80021 |     2395 |      100 | 1.77e-05 | 1.25e-03 ||   88.583 | 00h00'01   
-       3.17 |     4.00 ||  1111322 |     1836 |      100 | 9.77e-07 | 9.00e-05 ||   88.623 | 00h00'21   
-       3.42 |     4.25 || 15328291 |     1801 |      100 | 6.95e-08 | 6.52e-06 ||   86.728 | 00h04'58   
-# End of the simulation.
+       3.17 |     4.00 ||   130866 |      109 |       10 | 4.93e-07 | 7.64e-05 ||    3.753 | 00h00'58   
+#
