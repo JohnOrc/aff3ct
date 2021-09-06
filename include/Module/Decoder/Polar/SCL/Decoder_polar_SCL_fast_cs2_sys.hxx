@@ -241,12 +241,12 @@ void Decoder_polar_SCL_fast_cs2_sys<B,R,API_polar>
 	// at the beginning, path 0 points to array 0
 	std::fill(n_array_ref [0].begin(), n_array_ref [0].end(), 1);
 	std::fill(path_2_array[0].begin(), path_2_array[0].end(), 0);
-	std::iota(path_2_candidate[0].begin(), path_2_candidate[0].begin() + L, 0);
+	std::iota(path_2_candidate[0].begin(), path_2_candidate[0].begin() + 8, 0);
 
 	for (auto i = 1; i < L; i++)
 	{
 		std::fill(n_array_ref[i].begin(), n_array_ref[i].end(), 0);
-		std::iota(path_2_candidate[i].begin(), path_2_candidate[i].begin() + L, 0);
+		std::iota(path_2_candidate[i].begin(), path_2_candidate[i].begin() + 8, 0);
 	}		
 }
 
