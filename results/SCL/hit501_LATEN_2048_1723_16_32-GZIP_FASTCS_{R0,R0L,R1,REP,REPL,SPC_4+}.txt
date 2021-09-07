@@ -1,0 +1,107 @@
+[metadata]
+command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-31-gc33f694 -p "32" --sim-type "BFER" -C "POLAR" -m "4" -M "4" -s "0.25" -e "10" --sim-seed "42" --sim-stats --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "FASTCS" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL,SPC_4+}" -L "16" 
+title=hit501_LATEN_2048_1723_16_32-GZIP_FASTCS_{R0,R0L,R1,REP,REPL,SPC_4+}.txt
+
+[trace]
+# ----------------------------------------------------
+# ---- A FAST FORWARD ERROR CORRECTION TOOLBOX >> ----
+# ----------------------------------------------------
+# Parameters:
+# * Simulation ------------------------------------
+#    ** Type                     = BFER
+#    ** Type of bits             = int32
+#    ** Type of reals            = float32
+#    ** Date (UTC)               = 2021-09-07 03:00:52
+#    ** Git version              = v3.0.1-31-gc33f694
+#    ** Code type (C)            = POLAR
+#    ** Noise range              = 4 -> 4 dB
+#    ** Noise type (E)           = EBN0
+#    ** Seed                     = 42
+#    ** Statistics               = on
+#    ** Debug mode               = off
+#    ** Inter frame level        = 1
+#    ** Multi-threading (t)      = 1 thread(s)
+#    ** Coset approach (c)       = no
+#    ** Coded monitoring         = no
+#    ** Bad frames tracking      = off
+#    ** Bad frames replay        = off
+#    ** Bit rate                 = 0.825684 (1691/2048)
+# * Source ----------------------------------------
+#    ** Type                     = RAND
+#    ** Implementation           = STD
+#    ** Info. bits (K_info)      = 1691
+# * CRC -------------------------------------------
+#    ** Type                     = 32-GZIP
+#    ** Polynomial (hexadecimal) = 0x4c11db7
+#    ** Size (in bit)            = 32
+#    ** Implementation           = FAST
+# * Codec -----------------------------------------
+#    ** Type                     = POLAR
+#    ** Info. bits (K)           = 1723
+#    ** Codeword size (N_cw)     = 2048
+#    ** Frame size (N)           = 2048
+#    ** Code rate                = 0.841309 (1723/2048)
+# * Encoder ---------------------------------------
+#    ** Type                     = POLAR
+#    ** Systematic               = yes
+#    Frozen bits generator ------------------------
+#    ** Type                     = GA
+#    ** Noise                    = adaptive
+# * Decoder ---------------------------------------
+#    ** Type (D)                 = SCL
+#    ** Implementation           = FASTCS
+#    ** Systematic               = yes
+#    ** SIMD strategy            = INTRA
+#    ** Num. of lists (L)        = 16
+#    ** Polar node types         = {R0,R0L,R1,REP,REPL,SPC_4+}
+# * Modem -----------------------------------------
+#    ** Type                     = BPSK
+#    ** Implementation           = STD
+#    ** Bits per symbol          = 1
+#    ** Sigma square             = on
+# * Channel ---------------------------------------
+#    ** Type                     = AWGN
+#    ** Implementation           = STD
+#    ** Complex                  = off
+#    ** Add users                = off
+# * Monitor ---------------------------------------
+#    ** Lazy reduction           = off
+#    ** Frame error count (e)    = 10
+#    ** Compute mutual info      = no
+# * Terminal --------------------------------------
+#    ** Show Sigma               = off
+#    ** Enabled                  = yes
+#    ** Frequency (ms)           = 500
+# 
+# The simulation is running...
+# ---------------------||------------------------------------------------------||---------------------
+#  Signal Noise Ratio  ||   Bit Error Rate (BER) and Frame Error Rate (FER)    ||  Global throughput  
+#         (SNR)        ||                                                      ||  and elapsed time   
+# ---------------------||------------------------------------------------------||---------------------
+# ----------|----------||----------|----------|----------|----------|----------||----------|----------
+#     Es/N0 |    Eb/N0 ||      FRA |       BE |       FE |      BER |      FER ||  SIM_THR |    ET/RT 
+#      (dB) |     (dB) ||          |          |          |          |          ||   (Mb/s) | (hhmmss) 
+# ----------|----------||----------|----------|----------|----------|----------||----------|----------
+       3.17 |     4.00 ||   130866 |      109 |       10 | 4.93e-07 | 7.64e-05 ||    3.747 | 00h00'59   
+#
+# -------------------------------------------||------------------------------||--------------------------------||--------------------------------
+#        Statistics for the given task       ||       Basic statistics       ||       Measured throughput      ||        Measured latency        
+#     ('*' = any, '-' = same as previous)    ||          on the task         ||   considering the last socket  ||   considering the last socket  
+# -------------------------------------------||------------------------------||--------------------------------||--------------------------------
+# -------------|-------------------|---------||----------|----------|--------||----------|----------|----------||----------|----------|----------
+#       MODULE |              TASK |   TIMER ||    CALLS |     TIME |   PERC ||  AVERAGE |  MINIMUM |  MAXIMUM ||  AVERAGE |  MINIMUM |  MAXIMUM 
+#              |                   |         ||          |      (s) |    (%) ||   (Mb/s) |   (Mb/s) |   (Mb/s) ||     (us) |     (us) |     (us) 
+# -------------|-------------------|---------||----------|----------|--------||----------|----------|----------||----------|----------|----------
+#      Decoder |       decode_siho |       * ||   130866 |    47.74 |  80.93 ||     4.72 |     2.63 |     5.40 ||   364.84 |   319.04 |   656.05
+#      Channel |         add_noise |       * ||   130866 |     4.63 |   7.84 ||    57.94 |    14.51 |    67.23 ||    35.35 |    30.46 |   141.10
+#       Source |          generate |       * ||   130866 |     3.89 |   6.59 ||    56.91 |    12.29 |    63.32 ||    29.71 |    26.71 |   137.55
+#      Encoder |            encode |       * ||   130866 |     2.44 |   4.13 ||   109.98 |     8.76 |   115.13 ||    18.62 |    17.79 |   233.70
+#          CRC |             build |       * ||   130866 |     0.15 |   0.25 ||  1510.95 |    97.87 |  1592.42 ||     1.14 |     1.08 |    17.61
+#      Monitor |      check_errors |       * ||   130866 |     0.06 |   0.10 ||  3819.01 |   100.15 |  4144.61 ||     0.44 |     0.41 |    16.88
+#        Modem |          modulate |       * ||   130866 |     0.04 |   0.07 ||  6374.52 |   123.69 |  6872.48 ||     0.32 |     0.30 |    16.56
+#        Modem |        demodulate |       * ||   130866 |     0.03 |   0.05 ||  8459.25 |   124.21 |  9309.09 ||     0.24 |     0.22 |    16.49
+#          CRC |           extract |       * ||   130866 |     0.02 |   0.03 || 12870.81 |   106.11 | 17800.00 ||     0.13 |     0.10 |    15.94
+# -------------|-------------------|---------||----------|----------|--------||----------|----------|----------||----------|----------|----------
+#        TOTAL |                 * |       * ||   130866 |    58.99 | 100.00 ||     0.00 |     0.00 |     0.00 ||   450.80 |   396.10 |  1251.87
+#
+# End of the simulation.
