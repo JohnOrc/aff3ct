@@ -114,6 +114,8 @@ Decoder_polar_SCL_fast_cs_sys<B,R,API_polar>
 	metrics_vec[0].resize(L * 2);
 	metrics_vec[1].resize(L * 5);
 	metrics_vec[2].resize((L <= 2 ? 5 : 9) * L);
+	for (auto i = 0; i < L; i++)
+		std::iota(path_2_candidate[i].begin(), path_2_candidate[i].begin() + 8, 0);
 }
 
 template <typename B, typename R, class API_polar>
@@ -196,6 +198,8 @@ Decoder_polar_SCL_fast_cs_sys<B,R,API_polar>
 	metrics_vec[0].resize(L * 2);
 	metrics_vec[1].resize(L * 5);
 	metrics_vec[2].resize((L <= 2 ? 5 : 9) * L);
+	for (auto i = 0; i < L; i++)
+		std::iota(path_2_candidate[i].begin(), path_2_candidate[i].begin() + 8, 0);
 }
 
 template <typename B, typename R, class API_polar>
@@ -241,13 +245,10 @@ void Decoder_polar_SCL_fast_cs_sys<B,R,API_polar>
 	// at the beginning, path 0 points to array 0
 	std::fill(n_array_ref [0].begin(), n_array_ref [0].end(), 1);
 	std::fill(path_2_array[0].begin(), path_2_array[0].end(), 0);
-	std::iota(path_2_candidate[0].begin(), path_2_candidate[0].begin() + 8, 0);
+	
 
 	for (auto i = 1; i < L; i++)
-	{
-		std::fill(n_array_ref[i].begin(), n_array_ref[i].end(), 0);
-		std::iota(path_2_candidate[i].begin(), path_2_candidate[i].begin() + 8, 0);
-	}		
+		std::fill(n_array_ref[i].begin(), n_array_ref[i].end(), 0);	
 }
 
 template <typename B, typename R, class API_polar>
