@@ -46,6 +46,7 @@ protected:
 
 	int                               best_path;
 	int                               n_active_paths;
+	int								  n_cands_spc;
 
 	// each following 2D vector is of size L * m
 	std::vector<std::vector<int>>     n_array_ref;    // number of times an array is used

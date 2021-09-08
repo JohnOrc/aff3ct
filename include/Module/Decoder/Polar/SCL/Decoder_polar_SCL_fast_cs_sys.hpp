@@ -46,6 +46,8 @@ protected:
 
 	int                               best_path;
 	int                               n_active_paths;
+	int								  n_cands_r1;
+	int								  n_cands_spc;
 
 	// each following 2D vector is of size L * m
 	std::vector<std::vector<int>>     n_array_ref;    // number of times an array is used
@@ -85,7 +87,6 @@ protected:
 	inline void update_paths_rep(const int rev_depth, const int off_l, const int off_s, const int n_elmts);
 	inline void update_paths_spc(const int rev_depth, const int off_l, const int off_s, const int n_elmts);
 
-	// those methods are used by the generated SCL decoders
 	template <int REV_D, int N_ELMTS> inline void update_paths_r0 (const int off_l, const int off_s);
 	template <int REV_D, int N_ELMTS> inline void update_paths_r1 (const int off_l, const int off_s);
 	template <int REV_D, int N_ELMTS> inline void update_paths_rep(const int off_l, const int off_s);
