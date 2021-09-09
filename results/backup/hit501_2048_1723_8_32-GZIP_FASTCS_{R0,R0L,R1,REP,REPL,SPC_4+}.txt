@@ -1,5 +1,5 @@
 [metadata]
-command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-19-g94f5839 -p "32" --sim-type "BFER" -C "POLAR" -m "0.0" -M "4.3" -s "0.25" -e "100" --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "FASTCS" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL,SPC_4+}" -L "8" 
+command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-31-gc33f694 -p "32" --sim-type "BFER" -C "POLAR" -m "3.75" -M "4.3" -s "0.25" -e "100" --sim-seed "42" --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "FASTCS" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL,SPC_4+}" -L "8" 
 title=hit501_2048_1723_8_32-GZIP_FASTCS_{R0,R0L,R1,REP,REPL,SPC_4+}.txt
 
 [trace]
@@ -11,12 +11,12 @@ title=hit501_2048_1723_8_32-GZIP_FASTCS_{R0,R0L,R1,REP,REPL,SPC_4+}.txt
 #    ** Type                     = BFER
 #    ** Type of bits             = int32
 #    ** Type of reals            = float32
-#    ** Date (UTC)               = 2021-08-17 02:36:26
-#    ** Git version              = v3.0.1-19-g94f5839
+#    ** Date (UTC)               = 2021-09-06 15:36:27
+#    ** Git version              = v3.0.1-31-gc33f694
 #    ** Code type (C)            = POLAR
-#    ** Noise range              = 0 -> 4.25 dB
+#    ** Noise range              = 3.75 -> 4.25 dB
 #    ** Noise type (E)           = EBN0
-#    ** Seed                     = 0
+#    ** Seed                     = 42
 #    ** Statistics               = off
 #    ** Debug mode               = off
 #    ** Inter frame level        = 1
@@ -82,22 +82,95 @@ title=hit501_2048_1723_8_32-GZIP_FASTCS_{R0,R0L,R1,REP,REPL,SPC_4+}.txt
 #     Es/N0 |    Eb/N0 ||      FRA |       BE |       FE |      BER |      FER ||  SIM_THR |    ET/RT 
 #      (dB) |     (dB) ||          |          |          |          |          ||   (Mb/s) | (hhmmss) 
 # ----------|----------||----------|----------|----------|----------|----------||----------|----------
-      -0.83 |     0.00 ||      123 |    23527 |      123 | 1.13e-01 | 1.00e+00 ||    7.617 | 00h00'00   
-      -0.58 |     0.25 ||      126 |    22593 |      126 | 1.06e-01 | 1.00e+00 ||    6.924 | 00h00'00   
-      -0.33 |     0.50 ||      129 |    22260 |      129 | 1.02e-01 | 1.00e+00 ||    7.764 | 00h00'00   
-      -0.08 |     0.75 ||      127 |    20565 |      127 | 9.58e-02 | 1.00e+00 ||    7.762 | 00h00'00   
-       0.17 |     1.00 ||      129 |    19894 |      129 | 9.12e-02 | 1.00e+00 ||    7.890 | 00h00'00   
-       0.42 |     1.25 ||      127 |    18306 |      127 | 8.52e-02 | 1.00e+00 ||    7.871 | 00h00'00   
-       0.67 |     1.50 ||      125 |    16971 |      125 | 8.03e-02 | 1.00e+00 ||    7.606 | 00h00'00   
-       0.92 |     1.75 ||      126 |    15963 |      126 | 7.49e-02 | 1.00e+00 ||    7.818 | 00h00'00   
-       1.17 |     2.00 ||      131 |    15261 |      131 | 6.89e-02 | 1.00e+00 ||    8.218 | 00h00'00   
-       1.42 |     2.25 ||      127 |    12190 |      127 | 5.68e-02 | 1.00e+00 ||    7.643 | 00h00'00   
-       1.67 |     2.50 ||      134 |     9418 |      123 | 4.16e-02 | 9.18e-01 ||    7.977 | 00h00'00   
-       1.92 |     2.75 ||      187 |     5974 |      115 | 1.89e-02 | 6.15e-01 ||   10.079 | 00h00'00   
-       2.17 |     3.00 ||      396 |     4650 |      111 | 6.94e-03 | 2.80e-01 ||   17.531 | 00h00'00   
-       2.42 |     3.25 ||     1219 |     2997 |      105 | 1.45e-03 | 8.61e-02 ||   34.181 | 00h00'00   
-       2.67 |     3.50 ||     8790 |     2928 |      100 | 1.97e-04 | 1.14e-02 ||   81.039 | 00h00'00   
-       2.92 |     3.75 ||    77633 |     2152 |      100 | 1.64e-05 | 1.29e-03 ||   96.266 | 00h00'01   
-       3.17 |     4.00 ||   650319 |     1706 |      100 | 1.55e-06 | 1.54e-04 ||   96.787 | 00h00'11   
-       3.42 |     4.25 ||  9992130 |     1600 |      100 | 9.47e-08 | 1.00e-05 ||   93.621 | 00h03'00   
+       2.92 |     3.75 ||    78535 |     2406 |      100 | 1.81e-05 | 1.27e-03 ||   94.843 | 00h00'01   
+       3.17 |     4.00 ||   723535 |     1437 |      100 | 1.17e-06 | 1.38e-04 ||   95.352 | 00h00'12   
+       3.42 |     4.25 || 10113102 |     1684 |      100 | 9.85e-08 | 9.89e-06 ||   92.487 | 00h03'04   
+# End of the simulation.
+[metadata]
+command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-31-gc33f694 -p "32" --sim-type "BFER" -C "POLAR" -m "3.75" -M "4.3" -s "0.25" -e "100" --sim-seed "42" --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "FASTCS" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL,SPC_4+}" -L "8" 
+title=hit501_2048_1723_8_32-GZIP_FASTCS_{R0,R0L,R1,REP,REPL,SPC_4+}.txt
+
+[trace]
+# ----------------------------------------------------
+# ---- A FAST FORWARD ERROR CORRECTION TOOLBOX >> ----
+# ----------------------------------------------------
+# Parameters:
+# * Simulation ------------------------------------
+#    ** Type                     = BFER
+#    ** Type of bits             = int32
+#    ** Type of reals            = float32
+#    ** Date (UTC)               = 2021-09-07 08:08:17
+#    ** Git version              = v3.0.1-31-gc33f694
+#    ** Code type (C)            = POLAR
+#    ** Noise range              = 3.75 -> 4.25 dB
+#    ** Noise type (E)           = EBN0
+#    ** Seed                     = 42
+#    ** Statistics               = off
+#    ** Debug mode               = off
+#    ** Inter frame level        = 1
+#    ** Multi-threading (t)      = 1 thread(s)
+#    ** Coset approach (c)       = no
+#    ** Coded monitoring         = no
+#    ** Bad frames tracking      = off
+#    ** Bad frames replay        = off
+#    ** Bit rate                 = 0.825684 (1691/2048)
+# * Source ----------------------------------------
+#    ** Type                     = RAND
+#    ** Implementation           = STD
+#    ** Info. bits (K_info)      = 1691
+# * CRC -------------------------------------------
+#    ** Type                     = 32-GZIP
+#    ** Polynomial (hexadecimal) = 0x4c11db7
+#    ** Size (in bit)            = 32
+#    ** Implementation           = FAST
+# * Codec -----------------------------------------
+#    ** Type                     = POLAR
+#    ** Info. bits (K)           = 1723
+#    ** Codeword size (N_cw)     = 2048
+#    ** Frame size (N)           = 2048
+#    ** Code rate                = 0.841309 (1723/2048)
+# * Encoder ---------------------------------------
+#    ** Type                     = POLAR
+#    ** Systematic               = yes
+#    Frozen bits generator ------------------------
+#    ** Type                     = GA
+#    ** Noise                    = adaptive
+# * Decoder ---------------------------------------
+#    ** Type (D)                 = SCL
+#    ** Implementation           = FASTCS
+#    ** Systematic               = yes
+#    ** SIMD strategy            = INTRA
+#    ** Num. of lists (L)        = 8
+#    ** Polar node types         = {R0,R0L,R1,REP,REPL,SPC_4+}
+# * Modem -----------------------------------------
+#    ** Type                     = BPSK
+#    ** Implementation           = STD
+#    ** Bits per symbol          = 1
+#    ** Sigma square             = on
+# * Channel ---------------------------------------
+#    ** Type                     = AWGN
+#    ** Implementation           = STD
+#    ** Complex                  = off
+#    ** Add users                = off
+# * Monitor ---------------------------------------
+#    ** Lazy reduction           = off
+#    ** Frame error count (e)    = 100
+#    ** Compute mutual info      = no
+# * Terminal --------------------------------------
+#    ** Show Sigma               = off
+#    ** Enabled                  = yes
+#    ** Frequency (ms)           = 500
+# 
+# The simulation is running...
+# ---------------------||------------------------------------------------------||---------------------
+#  Signal Noise Ratio  ||   Bit Error Rate (BER) and Frame Error Rate (FER)    ||  Global throughput  
+#         (SNR)        ||                                                      ||  and elapsed time   
+# ---------------------||------------------------------------------------------||---------------------
+# ----------|----------||----------|----------|----------|----------|----------||----------|----------
+#     Es/N0 |    Eb/N0 ||      FRA |       BE |       FE |      BER |      FER ||  SIM_THR |    ET/RT 
+#      (dB) |     (dB) ||          |          |          |          |          ||   (Mb/s) | (hhmmss) 
+# ----------|----------||----------|----------|----------|----------|----------||----------|----------
+       2.92 |     3.75 ||    98646 |     2282 |      100 | 1.37e-05 | 1.01e-03 ||    6.356 | 00h00'26   
+       3.17 |     4.00 ||   877414 |     1587 |      100 | 1.07e-06 | 1.14e-04 ||    6.302 | 00h03'55   
+       3.42 |     4.25 || 10474144 |     1728 |      100 | 9.76e-08 | 9.55e-06 ||    6.105 | 00h48'21   
 # End of the simulation.
