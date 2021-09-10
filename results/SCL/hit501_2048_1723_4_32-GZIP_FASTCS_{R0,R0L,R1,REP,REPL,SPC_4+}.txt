@@ -1,5 +1,5 @@
 [metadata]
-command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-37-g3727a5e -p "32" --sim-type "BFER" -C "POLAR" -m "3.75" -M "4.3" -s "0.25" -e "100" --sim-seed "42" --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "FASTCS" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL,SPC_4+}" -L "4" 
+command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-40-g8459895 -p "32" --sim-type "BFER" -C "POLAR" -m "3.75" -M "4.3" -s "0.25" -e "100" --sim-seed "42" --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "FASTCS" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL,SPC_4+}" -L "4" 
 title=hit501_2048_1723_4_32-GZIP_FASTCS_{R0,R0L,R1,REP,REPL,SPC_4+}.txt
 
 [trace]
@@ -11,8 +11,8 @@ title=hit501_2048_1723_4_32-GZIP_FASTCS_{R0,R0L,R1,REP,REPL,SPC_4+}.txt
 #    ** Type                     = BFER
 #    ** Type of bits             = int32
 #    ** Type of reals            = float32
-#    ** Date (UTC)               = 2021-09-08 16:35:20
-#    ** Git version              = v3.0.1-37-g3727a5e
+#    ** Date (UTC)               = 2021-09-10 00:57:17
+#    ** Git version              = v3.0.1-40-g8459895
 #    ** Code type (C)            = POLAR
 #    ** Noise range              = 3.75 -> 4.25 dB
 #    ** Noise type (E)           = EBN0
@@ -82,7 +82,7 @@ title=hit501_2048_1723_4_32-GZIP_FASTCS_{R0,R0L,R1,REP,REPL,SPC_4+}.txt
 #     Es/N0 |    Eb/N0 ||      FRA |       BE |       FE |      BER |      FER ||  SIM_THR |    ET/RT 
 #      (dB) |     (dB) ||          |          |          |          |          ||   (Mb/s) | (hhmmss) 
 # ----------|----------||----------|----------|----------|----------|----------||----------|----------
-       2.92 |     3.75 ||    22743 |     2210 |      100 | 5.75e-05 | 4.40e-03 ||  124.308 | 00h00'00   
-       3.17 |     4.00 ||   189732 |     1922 |      100 | 5.99e-06 | 5.27e-04 ||  139.479 | 00h00'02   
-       3.42 |     4.25 ||  2177533 |     1841 |      100 | 5.00e-07 | 4.59e-05 ||  138.329 | 00h00'26   
+       2.92 |     3.75 ||    22697 |     2215 |      100 | 5.77e-05 | 4.41e-03 ||  124.773 | 00h00'00   
+       3.17 |     4.00 ||   185898 |     1914 |      100 | 6.09e-06 | 5.38e-04 ||  138.013 | 00h00'02   
+       3.42 |     4.25 ||  2171077 |     1815 |      100 | 4.94e-07 | 4.61e-05 ||  137.657 | 00h00'26   
 # End of the simulation.

@@ -1,5 +1,5 @@
 [metadata]
-command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-31-gc33f694 -p "32" --sim-type "BFER" -C "POLAR" -m "4" -M "4" -s "0.25" -e "10" --sim-seed "42" --sim-stats --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "FASTCS1" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL,SPC_4+}" -L "32" 
+command=/home/hit501/Desktop/zyl/aff3ct/build/bin/aff3ct-3.0.1-37-g3727a5e -p "32" --sim-type "BFER" -C "POLAR" -m "4" -M "4" -s "0.25" -e "100" --sim-seed "42" --sim-stats --enc-fb-gen-method "GA" -K "1723" -N "2048" --src-type "RAND" --chn-type "AWGN" --dec-type "SCL" --dec-implem "FASTCS1" --dec-simd "INTRA" --crc-type "32-GZIP" --crc-implem "FAST" --dec-polar-nodes "{R0,R0L,R1,REP,REPL,SPC_4+}" -L "32" 
 title=hit501_LATEN_2048_1723_32_32-GZIP_FASTCS1_{R0,R0L,R1,REP,REPL,SPC_4+}.txt
 
 [trace]
@@ -11,8 +11,8 @@ title=hit501_LATEN_2048_1723_32_32-GZIP_FASTCS1_{R0,R0L,R1,REP,REPL,SPC_4+}.txt
 #    ** Type                     = BFER
 #    ** Type of bits             = int32
 #    ** Type of reals            = float32
-#    ** Date (UTC)               = 2021-09-08 09:14:29
-#    ** Git version              = v3.0.1-31-gc33f694
+#    ** Date (UTC)               = 2021-09-08 15:46:13
+#    ** Git version              = v3.0.1-37-g3727a5e
 #    ** Code type (C)            = POLAR
 #    ** Noise range              = 4 -> 4 dB
 #    ** Noise type (E)           = EBN0
@@ -66,7 +66,7 @@ title=hit501_LATEN_2048_1723_32_32-GZIP_FASTCS1_{R0,R0L,R1,REP,REPL,SPC_4+}.txt
 #    ** Add users                = off
 # * Monitor ---------------------------------------
 #    ** Lazy reduction           = off
-#    ** Frame error count (e)    = 10
+#    ** Frame error count (e)    = 100
 #    ** Compute mutual info      = no
 # * Terminal --------------------------------------
 #    ** Show Sigma               = off
@@ -82,7 +82,7 @@ title=hit501_LATEN_2048_1723_32_32-GZIP_FASTCS1_{R0,R0L,R1,REP,REPL,SPC_4+}.txt
 #     Es/N0 |    Eb/N0 ||      FRA |       BE |       FE |      BER |      FER ||  SIM_THR |    ET/RT 
 #      (dB) |     (dB) ||          |          |          |          |          ||   (Mb/s) | (hhmmss) 
 # ----------|----------||----------|----------|----------|----------|----------||----------|----------
-       3.17 |     4.00 ||   130866 |      109 |       10 | 4.93e-07 | 7.64e-05 ||    2.049 | 00h01'48   
+       3.17 |     4.00 ||  1759082 |     1002 |      100 | 3.37e-07 | 5.68e-05 ||    2.050 | 00h24'11   
 #
 # -------------------------------------------||------------------------------||--------------------------------||--------------------------------
 #        Statistics for the given task       ||       Basic statistics       ||       Measured throughput      ||        Measured latency        
@@ -92,16 +92,16 @@ title=hit501_LATEN_2048_1723_32_32-GZIP_FASTCS1_{R0,R0L,R1,REP,REPL,SPC_4+}.txt
 #       MODULE |              TASK |   TIMER ||    CALLS |     TIME |   PERC ||  AVERAGE |  MINIMUM |  MAXIMUM ||  AVERAGE |  MINIMUM |  MAXIMUM 
 #              |                   |         ||          |      (s) |    (%) ||   (Mb/s) |   (Mb/s) |   (Mb/s) ||     (us) |     (us) |     (us) 
 # -------------|-------------------|---------||----------|----------|--------||----------|----------|----------||----------|----------|----------
-#      Decoder |       decode_siho |       * ||   130866 |    96.56 |  89.46 ||     2.34 |     1.54 |     2.67 ||   737.83 |   644.80 |  1120.30
-#      Channel |         add_noise |       * ||   130866 |     4.67 |   4.33 ||    57.35 |    22.30 |    68.44 ||    35.71 |    29.92 |    91.85
-#       Source |          generate |       * ||   130866 |     3.92 |   3.63 ||    56.43 |    18.55 |    63.38 ||    29.97 |    26.68 |    91.18
-#      Encoder |            encode |       * ||   130866 |     2.45 |   2.27 ||   109.31 |    31.12 |   115.58 ||    18.74 |    17.72 |    65.81
-#          CRC |             build |       * ||   130866 |     0.15 |   0.14 ||  1457.21 |    87.30 |  1566.36 ||     1.18 |     1.10 |    19.74
-#      Monitor |      check_errors |       * ||   130866 |     0.07 |   0.06 ||  3206.38 |    99.47 |  3741.15 ||     0.53 |     0.45 |    17.00
-#        Modem |          modulate |       * ||   130866 |     0.05 |   0.05 ||  5475.91 |   120.09 |  6606.45 ||     0.37 |     0.31 |    17.05
-#        Modem |        demodulate |       * ||   130866 |     0.04 |   0.03 ||  7514.10 |   125.15 |  8677.97 ||     0.27 |     0.24 |    16.37
-#          CRC |           extract |       * ||   130866 |     0.02 |   0.01 || 14164.39 |   100.64 | 19436.78 ||     0.12 |     0.09 |    16.80
+#      Decoder |       decode_siho |       * ||  1759082 |  1303.77 |  89.89 ||     2.32 |     0.67 |     2.68 ||   741.16 |   643.36 |  2590.56
+#      Channel |         add_noise |       * ||  1759082 |    60.35 |   4.16 ||    59.70 |     7.33 |    70.39 ||    34.31 |    29.10 |   279.41
+#       Source |          generate |       * ||  1759082 |    49.47 |   3.41 ||    60.13 |     6.39 |    66.72 ||    28.12 |    25.34 |   264.66
+#      Encoder |            encode |       * ||  1759082 |    32.60 |   2.25 ||   110.50 |     8.12 |   118.46 ||    18.53 |    17.29 |   252.17
+#          CRC |             build |       * ||  1759082 |     2.10 |   0.15 ||  1441.11 |    35.67 |  1570.65 ||     1.20 |     1.10 |    48.30
+#      Monitor |      check_errors |       * ||  1759082 |     0.80 |   0.06 ||  3713.00 |    90.39 |  4259.45 ||     0.46 |     0.40 |    18.71
+#        Modem |          modulate |       * ||  1759082 |     0.59 |   0.04 ||  6074.57 |   110.28 |  6872.48 ||     0.34 |     0.30 |    18.57
+#        Modem |        demodulate |       * ||  1759082 |     0.46 |   0.03 ||  7798.69 |    44.72 |  9570.09 ||     0.26 |     0.21 |    45.80
+#          CRC |           extract |       * ||  1759082 |     0.26 |   0.02 || 11368.33 |   102.27 | 20621.95 ||     0.15 |     0.08 |    16.53
 # -------------|-------------------|---------||----------|----------|--------||----------|----------|----------||----------|----------|----------
-#        TOTAL |                 * |       * ||   130866 |   107.93 | 100.00 ||     0.00 |     0.00 |     0.00 ||   824.72 |   721.31 |  1456.10
+#        TOTAL |                 * |       * ||  1759082 |  1450.41 | 100.00 ||     0.00 |     0.00 |     0.00 ||   824.52 |   717.18 |  3534.72
 #
 # End of the simulation.
