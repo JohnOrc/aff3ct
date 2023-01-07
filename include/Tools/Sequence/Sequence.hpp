@@ -53,7 +53,7 @@ public:
 using Sub_sequence       = Sub_sequence_generic<std::vector<      module::Task*>>;
 using Sub_sequence_const = Sub_sequence_generic<std::vector<const module::Task*>>;
 
-class Sequence : public Interface_clone, public Interface_get_set_n_frames
+class Sequence : public Interface_clone, public Interface_get_set_n_frames, public Interface_is_done
 {
 	friend Pipeline;
 
@@ -79,6 +79,11 @@ protected:
 	std::vector<tools::Interface_is_done*> donners;
 	std::vector<std::vector<tools::Interface_reset*>> switchers_reset;
 	bool auto_stop;
+
+	// internal state for the `exec_step` method
+	std::vector<bool> next_round_is_over;
+	std::vector<size_t> cur_task_id;
+	std::vector<Digraph_node<Sub_sequence>*> cur_ss;
 
 public:
 	Sequence(const std::vector<const module::Task*> &firsts,
@@ -142,10 +147,12 @@ public:
 	void set_thread_pinning(const bool thread_pinning, const std::vector<size_t> &puids = {});
 	bool is_thread_pinning();
 
-	void exec(std::function<bool(const std::vector<const int*>&)> stop_condition);
-	void exec(std::function<bool(                              )> stop_condition);
-	void exec(                                                                  );
-	void exec_seq(const size_t tid = 0, const int frame_id = -1);
+	void          exec     (std::function<bool(const std::vector<const int*>&)> stop_condition);
+	void          exec     (std::function<bool(                              )> stop_condition);
+	void          exec     (                                                                  );
+	void          exec_seq (const size_t tid = 0, const int frame_id = -1                     );
+	module::Task* exec_step(const size_t tid = 0, const int frame_id = -1                     );
+
 	inline size_t get_n_threads() const;
 
 	template <class C = module::Module>
@@ -173,6 +180,8 @@ public:
 	inline size_t get_n_frames() const;
 	void set_n_frames(const size_t n_frames);
 
+	virtual bool is_done() const;
+
 protected:
 	template <class SS>
 	void delete_tree(Digraph_node<SS> *node, std::vector<Digraph_node<SS>*> &already_deleted_nodes);
@@ -188,7 +197,9 @@ protected:
 	                                 const std::vector<TA*> &lasts,
 	                                 const std::vector<TA*> &exclusions,
 	                                 std::vector<size_t> &real_lasts_id,
-	                                 std::vector<TA*> &real_lasts);
+	                                 std::vector<TA*> &real_lasts,
+	                                 std::map<TA*,unsigned> &in_sockets_feed,
+	                                 std::map<TA*,std::pair<Digraph_node<SS>*,size_t>> &task_subseq);
 
 	template <class VTA>
 	void export_dot_subsequence(const VTA &subseq,
